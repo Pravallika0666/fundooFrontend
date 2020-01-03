@@ -5,7 +5,10 @@ export default {
   props: [],
   data () {
     return {
-
+      loading: false,
+      login: {
+        email: ""
+      }
     }
   },
   computed: {
