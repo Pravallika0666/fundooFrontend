@@ -1,0 +1,81 @@
+.centered-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 100vh;
+    background-color:white; /* For browsers that do not support gradients */
+  background-image: linear-gradient(white,grey);
+    .title {
+      text-align: center;
+      margin-bottom: 30px;
+      
+      header {
+        margin-bottom: 16px;
+        max-width: 80px;
+      }
+    }
+    .header{
+      padding:15px;
+      font-size: 200%;
+      font-display: cursive;
+      font-weight: bold;
+    }
+    .actions {
+      .md-button {
+        margin: 0;
+      }
+    }
+    .form {
+      margin-bottom: 60px;
+    }
+    .md-content {
+      z-index: 1;
+      padding: 40px;
+      width: 100%;
+      max-width: 400px;
+      position: relative;
+      border-radius: 10px;
+      border: 2px solid black;
+    }
+    .loading-overlay {
+      z-index: 10;
+      top: 0;
+      left: 0;
+      right: 0;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .f{
+    color:rgb(66, 133, 244);
+    font-weight: 700%;
+    }
+    .u{
+    color:rgb(52, 168, 83);
+    font-weight: 700%;
+    }
+    .n{
+    color:rgb(251, 188, 5);
+    font-weight: 700%;
+    }
+    .d{
+    color:rgb(66, 133, 244);
+    font-weight: 700%;
+    }
+    .o{
+    color:rgb(234, 67, 53);
+    font-weight: 700%;
+    }
+    .o{
+    color:rgb(234, 67, 53);
+    font-weight: 700%;
+    }
+    .forgot{
+      text-decoration: underline;
+    }
