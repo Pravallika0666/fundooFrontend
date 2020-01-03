@@ -1,0 +1,48 @@
+<section class="register">
+    <div class="centered-container">
+        <md-content class="md-elevation-3">
+            <div class="title">
+                <div class='header'>
+                  <span class='f'>F</span>
+                  <span class='u'>u</span>
+                  <span class='n'>n</span>
+                  <span class='d'>d</span>
+                  <span class='o'>o</span>
+                  <span class='o'>o</span>
+                </div>
+                <span class="head">C</span>
+                 <span class="acc">reate your account</span> 
+    
+            </div>
+         
+          <div class="form">
+              <md-field>
+                  <label>Firstname</label>
+                  <md-input v-model="register.firstName" autofocus></md-input>
+                </md-field>
+                <md-field>
+                    <label>Lastname</label>
+                    <md-input v-model="register.lastName" autofocus></md-input>
+                  </md-field>
+            <md-field>
+              <label>Email</label>
+              <md-input v-model="register.email" placeholder="@gmail.com" autofocus></md-input>
+            </md-field>
+    
+            <md-field md-has-password>
+              <label>Password</label>
+              <md-input v-model="register.password" type="password"></md-input>
+            </md-field>
+            <md-field>
+                <label>Confirm Password</label>
+                <md-input v-model="register.confirmPassword" type="password" autofocus></md-input>
+              </md-field>
+          </div>
+         
+        <div class="actions md-layout md-alignment-center-space-between">
+            <md-button class="md-raised md-primary">Register</md-button>
+          </div>
+        </md-content>
+      </div>
+</section>
+
