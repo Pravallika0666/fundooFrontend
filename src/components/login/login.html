@@ -1,0 +1,38 @@
+<section class="login">
+    <div class="centered-container">
+        <md-content class="md-elevation-3">
+            <div class="title">
+                <div class='header'>
+                  <span class='f'>F</span>
+                  <span class='u'>U</span>
+                  <span class='n'>N</span>
+                  <span class='d'>D</span>
+                  <span class='o'>O</span>
+                  <span class='o'>O</span>
+                </div>
+                <div class="md-title">LOGIN</div>
+    
+            </div>
+         
+          <div class="form">
+            <md-field>
+              <label>Email</label>
+              <md-input v-model="login.email" autofocus></md-input>
+            </md-field>
+    
+            <md-field md-has-password>
+              <label>Password</label>
+              <md-input v-model="login.password" type="password"></md-input>
+            </md-field>
+          </div>
+          <div class="forgot">
+            <a href="/forgotpassword">Forgot Password</a>
+          </div>
+        <div class="actions md-layout md-alignment-center-space-between">
+            <a href="/register">New user?SignIn</a>
+            <md-button class="md-raised md-primary" @click="auth">Log in</md-button>
+          </div>
+        </md-content>
+      </div>
+</section>
+
