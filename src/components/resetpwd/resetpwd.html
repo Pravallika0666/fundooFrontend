@@ -1,34 +1,40 @@
 <section class="resetpwd">
-    <div class="centered-container">
-        <md-content class="md-elevation-3">
-            <div class="title">
-                <div class='header'>
-                  <span class='f'>F</span>
-                  <span class='u'>U</span>
-                  <span class='n'>N</span>
-                  <span class='d'>D</span>
-                  <span class='o'>O</span>
-                  <span class='o'>O</span>
-                </div>
-                <div class="md-title">Reset Password</div>
-    
-            </div>
-         
-          <div class="form">
-            <md-field md-has-password>
-              <label>Password</label>
-              <md-input v-model="resetpwd.password" type="password"></md-input>
-              
-            </md-field>
-            <md-field md-has-password>
-                <label>Confirm Password</label>
-                <md-input v-model="resetpwd.confirmPassword" type="password"></md-input>
-              </md-field>
+  <div class="centered-container">
+    <form novalidate class="md-layout" @submit.prevent="validateUser">
+      <md-content class="md-elevation-3">
+        <div class="title">
+          <div class='header'>
+            <span class='f'>F</span>
+            <span class='u'>U</span>
+            <span class='n'>N</span>
+            <span class='d'>D</span>
+            <span class='o'>O</span>
+            <span class='o'>O</span>
           </div>
-        <div class="actions md-layout md-alignment-center-space-between">
-            <md-button class="md-raised md-primary" >Submit</md-button>
-          </div>
-        </md-content>
+          <div class="md-title">Reset Password</div>
         </div>
-</section>
 
+        <div class="form">
+          <md-field md-has-password :class="getValidationClass('password')">
+            <label>Password</label>
+            <md-input name="password" id="password" type="password" autocomplete="given-name" v-model="user.password"
+              :disabled="sending" />
+            <span class="md-error" v-if="!$v.user.password.required">The password is required</span>
+            <span class="md-error" v-else-if="!$v.user.password">Invalid password</span>
+
+          </md-field>
+          <md-field :class="getValidationClass('confirmpassword')">
+            <label for="confirmpassword">Confirm Password</label>
+            <md-input name="confirmpassword" type="password" id="confirmpassword" autocomplete="given-name"
+              v-model="user.confirmpassword" :disabled="sending" />
+            <span class="md-error" v-if="!$v.user.confirmpassword.required">The confrim password is required</span>
+            <span class="md-error" v-else-if="!$v.user.confirmpassword">Invalid confrim password</span>
+          </md-field>
+        </div>
+        <div class="actions md-layout md-alignment-center-space-between">
+          <md-button class="md-raised md-primary" type="submit">Submit</md-button>
+        </div>
+      </md-content>
+    </form>
+  </div>
+</section>

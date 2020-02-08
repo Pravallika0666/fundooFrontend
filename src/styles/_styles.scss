@@ -1,0 +1,9 @@
+@mixin dispflex($disp){
+    display: $disp;
+}
+@mixin space($content){
+    justify-content: $content;
+}
+@mixin text($align){
+    text-align: $align;
+}

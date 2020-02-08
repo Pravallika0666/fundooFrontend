@@ -1,13 +1,15 @@
+@import '../../styles/styles';
 .centered-container {
-    display: flex;
+  @include dispflex(flex);
     align-items: center;
-    justify-content: center;
+    @include space(center); 
     position: relative;
     height: 100vh;
+    // width:100%;
     background-color:white; /* For browsers that do not support gradients */
-  background-image: linear-gradient(white,grey);
+    // background-image: linear-gradient(white,grey);
     .title {
-      text-align: center;
+      @include text(center);
       margin-bottom: 30px;
       
       header {
@@ -32,11 +34,10 @@
     .md-content {
       z-index: 1;
       padding: 40px;
-      width: 100%;
-      max-width: 400px;
+      width:350px;
       position: relative;
       border-radius: 10px;
-      border: 2px solid black;
+      // border: 2px solid black;
     }
     .loading-overlay {
       z-index: 10;
@@ -47,9 +48,18 @@
       width: 100%;
       height: 100%;
       background: rgba(255, 255, 255, 0.9);
-      display: flex;
+      @include dispflex(flex);
       align-items: center;
-      justify-content: center;
+      @include space(center); 
+    }
+    .signin{
+      cursor: pointer;
+      color: blue;
+    }
+    .forgot{
+      cursor: pointer;
+      color:blue;
+      @include dispflex(flex);
     }
   }
   .f{
@@ -76,6 +86,4 @@
     color:rgb(234, 67, 53);
     font-weight: 700%;
     }
-    .forgot{
-      text-decoration: underline;
-    }
+  

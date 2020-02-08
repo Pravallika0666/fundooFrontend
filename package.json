@@ -10,10 +10,14 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "core-js": "^3.4.4",
+    "jquery": "^3.4.1",
     "register-service-worker": "^1.6.2",
+    "vee-validate": "^3.2.3",
     "vue": "^2.6.10",
     "vue-material": "^1.0.0-beta-11",
+    "vue-material-design-icons": "^4.4.0",
     "vue-router": "^3.1.3",
     "vuelidate": "^0.7.4"
   },
@@ -48,7 +52,9 @@
       "plugin:vue/essential",
       "@vue/prettier"
     ],
-    "rules": {},
+    "rules": {
+      "no-console": "off"
+      },
     "parserOptions": {
       "parser": "babel-eslint"
     },

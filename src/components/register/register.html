@@ -1,48 +1,62 @@
 <section class="register">
-    <div class="centered-container">
-        <md-content class="md-elevation-3">
-            <div class="title">
-                <div class='header'>
-                  <span class='f'>F</span>
-                  <span class='u'>u</span>
-                  <span class='n'>n</span>
-                  <span class='d'>d</span>
-                  <span class='o'>o</span>
-                  <span class='o'>o</span>
-                </div>
-                <span class="head">C</span>
-                 <span class="acc">reate your account</span> 
-    
-            </div>
-         
-          <div class="form">
-              <md-field>
-                  <label>Firstname</label>
-                  <md-input v-model="register.firstName" autofocus></md-input>
-                </md-field>
-                <md-field>
-                    <label>Lastname</label>
-                    <md-input v-model="register.lastName" autofocus></md-input>
-                  </md-field>
-            <md-field>
-              <label>Email</label>
-              <md-input v-model="register.email" placeholder="@gmail.com" autofocus></md-input>
-            </md-field>
-    
-            <md-field md-has-password>
-              <label>Password</label>
-              <md-input v-model="register.password" type="password"></md-input>
-            </md-field>
-            <md-field>
-                <label>Confirm Password</label>
-                <md-input v-model="register.confirmPassword" type="password" autofocus></md-input>
-              </md-field>
+  <div class="centered-container">
+    <form novalidate class="md-layout" @submit.prevent="validateUser">
+      <md-content class="md-elevation-3">
+        <div class="title">
+          <div class='header'>
+            <span class='f'>F</span>
+            <span class='u'>u</span>
+            <span class='n'>n</span>
+            <span class='d'>d</span>
+            <span class='o'>o</span>
+            <span class='o'>o</span>
           </div>
-         
-        <div class="actions md-layout md-alignment-center-space-between">
-            <md-button class="md-raised md-primary">Register</md-button>
-          </div>
-        </md-content>
-      </div>
-</section>
+          <span class="head">C</span>
+          <span class="acc">reate your account</span>
+        </div>
+        <div class="form">
+          <md-field :class="getValidationClass('firstName')">
+            <label for="firstName">Firstname</label>
+            <md-input name="firstName" id="firstName" autocomplete="given-name" v-model="user.firstName"
+              :disabled="sending" />
+            <span class="md-error" v-if="!$v.user.firstName.required">The first name is required</span>
+            <span class="md-error" v-else-if="!$v.user.firstName.minLength">Invalid first name</span>
+          </md-field>
+          <md-field :class="getValidationClass('lastName')">
+            <label for="lastName">Lastname</label>
+            <md-input name="lastName" id="lastName" autocomplete="given-name" v-model="user.lastName"
+              :disabled="sending" />
+            <span class="md-error" v-if="!$v.user.lastName.required">The last name is required</span>
+            <span class="md-error" v-else-if="!$v.user.lastName.minLength">Invalid last name</span>
+          </md-field>
+          <md-field :class="getValidationClass('email')">
+            <label for="email">Email</label>
+            <md-input name="email" id="email" autocomplete="given-name" v-model="user.email" :disabled="sending" />
+            <span class="md-error" v-if="!$v.user.email.required">The email is required</span>
+            <span class="md-error" v-else-if="!$v.user.email">Invalid email</span>
+          </md-field>
 
+          <md-field md-has-password :class="getValidationClass('password')">
+            <label for="password">Password</label>
+            <md-input name="password" id="password" type="password" autocomplete="given-name" v-model="user.password"
+              :disabled="sending" />
+            <span class="md-error" v-if="!$v.user.password.required">The password is required</span>
+            <span class="md-error" v-else-if="!$v.user.password.maxlength">Invalid password</span>
+          </md-field>
+          <md-field :class="getValidationClass('confirmpassword')">
+            <label for="confirmpassword">Confirm Password</label>
+            <md-input name="confirmpassword" type="password" id="confirmpassword" autocomplete="given-name"
+              v-model="user.confirmpassword" :disabled="sending" />
+            <span class="md-error" v-if="!$v.user.confirmpassword.required">The confrim password is required</span>
+            <span class="md-error" v-else-if="!$v.user.confirmpassword.maxlength">Invalid confrim password</span>
+          </md-field>
+        </div>
+
+        <div class="actions md-layout md-alignment-center-space-between">
+          <md-button :disabled="sending" class="md-raised md-primary" @click="login">SignUp</md-button>
+          <md-button type="submit" :disabled="sending" class="md-raised md-primary">SignIn</md-button>
+        </div>
+      </md-content>
+    </form>
+  </div>
+</section>
