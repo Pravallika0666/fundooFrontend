@@ -1,0 +1,72 @@
+@import "../../styles/variables";
+@import '../../styles/styles';
+.display-note {
+.displaycard{
+    margin-top: 40px;
+    @include dispflex(flex);
+    flex-wrap: wrap;
+    margin-left:3%;
+    @include text(justify);
+}
+.displaytitle{
+    @include dispflex(flex);
+    padding: 8px;
+}
+.cardContainer{
+    width:310px;
+    border-radius: 6px;
+    margin:1%
+}
+.subnote{
+    @include dispflex(flex);
+    @include space(space-between);
+}
+.displaytitle{
+    word-break: break-all;
+    cursor: default;
+}
+}
+.noteTitle{
+    width:100%;
+    @include dispflex(flex);
+    letter-spacing: .00625em;
+    font-family:  $roboto-slab;
+    font-size: 1rem;
+    font-weight: 500;
+    // line-height: 1.5rem;
+    @include text(left);
+    border: none;
+  
+ }
+
+ .dialogIcons{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+  .md-dialog{
+      border-radius: 5px;
+      width:600px;
+    //   height: 160px;
+      
+  }
+  .dialogAlign{
+      display: flex;
+      padding: 12px;
+  }
+  .dialogDesign{
+    //   padding:15px
+  }
+  .dailogDescription{
+      padding:12px;
+      width:100%;
+      @include dispflex(flex);
+      letter-spacing: .00625em;
+      font-family:  $roboto-slab;
+      font-size: 1rem;
+      font-weight: 500;
+      // line-height: 1.5rem;
+      @include text(left);
+      border: none;
+  }
