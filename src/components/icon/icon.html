@@ -1,0 +1,67 @@
+<div class="icon">
+  <div v-if="!route1" class="icons2">
+    <div>
+      <md-button class="md-icon-button">
+        <img src="../../assets/remindMe.svg" alt="" srcset="">
+      </md-button>
+    </div>
+    <div>
+      <md-button class="md-icon-button">
+        <img src="../../assets/collaborator.svg" alt="" srcset="">
+      </md-button>
+    </div>
+    <div>
+      <md-menu md-direction="top-start">
+        <md-button md-menu-trigger class="md-icon-button">
+          <img src="../../assets/color.svg" alt="" srcset="">
+        </md-button>
+        <md-menu-content>
+          <!-- <div class="color1" v-for="color in colorArray">
+            <div v-for="color in color" class="colorAlign">
+              <md-button class="md-icon-button" @click="colorDisplay(color.color,cardObject)"
+                v-bind:style="{'background-color':color.color}"></md-button>
+            </div>
+          </div> -->
+          <div class="displaycolor" v-for=" colors in colorArray">
+            <div v-for="color in colors">
+              <md-button class="md-fab md-mini" @click="colorsDisplay(color.color,cardObject)"
+                v-bind:style="{ 'background-color': color.color }">
+              </md-button>
+            </div>
+          </div>
+        </md-menu-content>
+      </md-menu>
+    </div>
+    <div>
+      <md-button class="md-icon-button">
+        <img src="../../assets/addImage.svg" alt="" srcset="">
+      </md-button>
+    </div>
+    <div>
+      <md-button class="md-icon-button" v-if="!route" @click="archive(cardObject)">
+        <img src="../../assets/archive.svg" alt="" srcset="">
+      </md-button>
+    </div>
+    <div>
+      <md-button class="md-icon-button" v-if="route" @click="unarchive(cardObject)">
+        <img src="../../assets/unarchive.svg" alt="" srcset="">
+      </md-button>
+    </div>
+    <div>
+      <md-menu md-direction="bottom-start">
+        <md-button class="md-icon-button" md-menu-trigger>
+          <img src="../../assets/more.svg" alt="" srcset="">
+          <md-menu-content class="menuContent">
+            <md-menu-item class="deletepointer" @click="trash(cardObject)">Delete note</md-menu-item>
+            <md-menu-item>Add label</md-menu-item>
+          </md-menu-content>
+        </md-button>
+      </md-menu>
+    </div>
+  </div>
+  <div v-if="route1">
+    <md-button class="md-icon-button" @click="unTrash(cardObject)">
+      <img src="../../assets/restore.svg" alt="" srcset="">
+    </md-button>
+  </div>
+</div>

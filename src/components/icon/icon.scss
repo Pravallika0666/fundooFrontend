@@ -1,0 +1,19 @@
+@import "../../styles/styles";
+.icon {
+    .icons2{
+        @include dispflex(flex);
+        opacity: 0.87;
+    }
+    .menuContent{
+        border-radius: 10%;
+    }
+    .deletepointer{
+        cursor: pointer !important;
+    }
+  
+}
+.displaycolor {
+    margin-top: 2px;
+    display: flex;
+    flex-flow: row wrap;
+  }
