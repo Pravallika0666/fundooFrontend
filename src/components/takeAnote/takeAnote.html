@@ -1,0 +1,49 @@
+<section class="take-anote">
+  <div v-if="flag==true" class='takeanoteContainer'>
+    <md-card class='card'>
+      <div>
+        <textarea @click="openCard" class="note" placeholder="Take a note..."></textarea>
+      </div>
+      <div class="icons1">
+        <div>
+          <md-button class="md-icon-button">
+            <img src="../../assets/tick.svg" alt="" srcset="">
+          </md-button>
+        </div>
+        <div>
+          <md-button class="md-icon-button">
+            <img src="../../assets/notedrawing.svg" alt="" srcset="">
+          </md-button>
+        </div>
+        <div>
+          <md-button class="md-icon-button">
+            <img src="../../assets/noteimage.svg" alt="" srcset="">
+          </md-button>
+        </div>
+      </div>
+    </md-card>
+  </div>
+  <div v-if="flag==false" class="insideNote">
+    <md-card class='insidecard'>
+      <div>
+        <div class="title">
+          <textarea placeholder="Title" v-model="takeNote.title"></textarea>
+          <md-button class="md-icon-button">
+            <img src="../../assets/pin.svg" alt="" srcset="">
+          </md-button>
+        </div>
+        <div class="subtitle">
+          <textarea placeholder="Take a note..." v-model="takeNote.description"></textarea>
+        </div>
+        <div>
+          <div class="icons">
+            <icon></icon>
+            <div>
+              <md-button class="button" @click="addNote">Close</md-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </md-card>
+  </div>
+</section>

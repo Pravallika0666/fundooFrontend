@@ -1,0 +1,107 @@
+@import '../../styles/styles';
+@import '../../styles/variables';
+.take-anote {
+ .card{
+    font-family:  $roboto-slab;
+     width:598px;
+     height: 46px;
+     box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302), 0 2px 6px 2px rgba(60,64,67,0.149);
+     position: relative;
+     border-radius: 8px;
+     border: none;
+ }
+ [contentEditable=true]:empty:not(:focus):before{
+    content:attr(data-text)
+ }
+ [contenteditable]:focus {
+    outline: 0px solid transparent;
+}
+ .note{
+    width:100%;
+    @include dispflex(flex);
+    padding:12px ;
+    letter-spacing: .00625em;
+    font-family:  $roboto-slab;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    position: absolute;
+    @include text(left);
+ }
+
+.icons1{
+    @include dispflex(flex);
+    @include space(flex-end);
+    opacity: 0.87;
+  
+}
+.main{
+    opacity: 0.87;
+}
+input{
+    font-family:  $roboto-slab;
+    border: none;
+    background-color: transparent;
+    resize: none;
+    overflow: hidden;
+
+}
+textarea{
+border:none;
+background-color: transparent;
+resize: none;
+outline:none;
+overflow: hidden;
+width: 80%;
+font-family:  $roboto-slab;
+letter-spacing: .01428571em;
+font-weight: 500;
+font-size: 15px
+
+}
+.insidecard{
+    width: 600px;
+    height: 148px;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302), 0 2px 6px 2px rgba(60,64,67,0.149);
+    opacity: 0.87;
+    font-family:  $roboto-slab;
+
+}
+.note1{
+    opacity: 0.87;
+    letter-spacing: .00625em;
+    font-family:  $roboto-slab;
+
+}
+.title{
+    @include dispflex(flex);
+    padding: 7px 15px;
+    @include space(space-between);
+    font-family:  $roboto-slab;
+}
+.subtitle{
+    @include dispflex(flex);
+    padding: 7px 15px;
+    
+}
+.icons{
+    @include dispflex(flex);
+    @include space(space-between);
+    font-family:  $roboto-slab;
+}
+.button{
+    font-family:  $roboto-slab;
+    text-transform: capitalize;
+    font-weight: 600
+}
+.takeanoteContainer{
+    @include dispflex(flex);
+    @include space(center);
+}
+.insideNote{
+    @include dispflex(flex);
+    @include space(center);
+}
+}
