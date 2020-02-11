@@ -1,7 +1,8 @@
 import icon from "../icon"
 import { Object } from "core-js";
 import { updateNote } from "../../services/services";
-// import { color } from "../../services/services";
+// import {color} from "../../services/services";
+
 export default {
   name: 'display-note',
   components: { icon },

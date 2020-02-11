@@ -27,7 +27,7 @@ export function addNote(url, data) {
 export function isTrash(url, data) {
   return axios.put(url, data).then(res => res.data)
 }
-export function color(url, data) {
+export function updateColor(url, data) {
   return axios.put(url, data).then(res => res.data)
 }
 

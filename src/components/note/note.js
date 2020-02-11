@@ -20,7 +20,7 @@ export default {
 
             this.notes = [];
             for (let index = 0; index < res.data.length; index++) {
-              if (!res.data[index].isArchived) {
+              if (!res.data[index].isArchived && !res.data[index].isDeleted) {
                 this.notes.push(res.data[index]);
               }
             }
@@ -36,10 +36,12 @@ export default {
   },
   mounted() {
     getAllnote('http://localhost:4000/note/getAllnote').then(res => {
+      console.log(res, "richyrich");
+
       var carddata = res.data
       this.notes = []
       for (let i = 0; i < carddata.length; i++) {
-        if (!carddata[i].isArchived) {
+        if (!carddata[i].isArchived && !carddata[i].isDeleted) {
           this.notes.push(carddata[i])
         }
       }

@@ -1,9 +1,7 @@
 import icon from "../icon";
 import { addNote, messageService } from "../../services/services"
 import { validationMixin } from 'vuelidate'
-import {
 
-} from 'vuelidate/lib/validators';
 export default {
   name: 'take-anote',
   mixins: [validationMixin],

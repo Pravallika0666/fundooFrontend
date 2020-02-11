@@ -1,6 +1,6 @@
 <section class="display-note">
   <div class="displaycard">
-    <md-card v-for="card in cards" class="cardContainer">
+    <md-card v-for="card in cards" class="cardContainer"  v-bind:style="{ 'background-color': card.color }">
       <div class="subnote">
         <div class="displaytitle" @click="save(card)">
           {{card.title}}

@@ -1,7 +1,7 @@
 import { archive } from "../../services/services";
 import { isTrash } from "../../services/services";
 import { updateNote } from '../../services/services';
-import { color } from "../../services/services";
+import { updateColor } from '../../services/services';
 export default {
   name: 'icon',
   components: {},
@@ -41,17 +41,17 @@ export default {
   },
   mounted() {
     if (this.$router.currentRoute.fullPath === "/dashboard/archive") {
-      console.log(this.$router.currentRoute.fullPath, "hikkkkkkkkkkkkkkk");
+      // console.log(this.$router.currentRoute.fullPath, "hikkkkkkkkkkkkkkk");
       this.route = true
     } else {
-      console.log(this.$router.currentRoute.fullPath, "hhhhhhhhhhhhhhhhhhhhhh");
+      // console.log(this.$router.currentRoute.fullPath, "hhhhhhhhhhhhhhhhhhhhhh");
       this.route = false
     }
     if (this.$router.currentRoute.fullPath === "/dashboard/trash") {
-      console.log(this.$router.currentRoute.fullPath, "jkjf");
+      // console.log(this.$router.currentRoute.fullPath, "jkjf");
       this.route1 = true
     } else {
-      console.log(this.$router.currentRoute.fullPath, "hh")
+      // console.log(this.$router.currentRoute.fullPath, "hh")
       this.route1 = false
     }
   },
@@ -111,16 +111,16 @@ export default {
         this.$emit('cardcolor', color)
       } else {
         cardObject.color = color;
-        this.color(color, cardObject)
+        this.updateColor(color, cardObject)
       }
     },
-    color(cardObject) {
+    updateColor(color, cardObject) {
       var object = {
         noteId: cardObject._id,
         color: color
       }
-      console.log("colorobject",object);
-      color('http://localhost:4000/note/color', object).then((res) => {
+      console.log("colorobject", object);
+      updateColor('http://localhost:4000/note/color', object).then((res) => {
         console.log("color repsonse", res);
       })
     }
