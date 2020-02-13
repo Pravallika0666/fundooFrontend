@@ -59,6 +59,10 @@ export default {
       }
       getAll('http://localhost:4000/login', obj).then(res => {
         console.log("res", res);
+        localStorage.setItem('firstname', res.data[1].firstName)
+        localStorage.setItem('lastname', res.data[1].lastName)
+        localStorage.setItem('email', res.data[1].email)
+        localStorage.setItem('_id', res.data[1]._id)
         router.push('/dashboard')
       })
       // Instead of this timeout, here you can call your API

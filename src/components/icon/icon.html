@@ -1,27 +1,50 @@
 <div class="icon">
   <div v-if="!route1" class="icons2">
     <div>
-      <md-button class="md-icon-button">
-        <img src="../../assets/remindMe.svg" alt="" srcset="">
-      </md-button>
+      <md-menu md-size="medium" md-align-trigger>
+        <md-button class="md-icon-button" md-menu-trigger>
+          <img src="../../assets/icons/remindMe.svg" alt="" srcset="">
+        </md-button>
+        <div class="remindCard">
+          <md-menu-content class="remindMenuContent">
+            <md-menu-item>Reminder:</md-menu-item>
+            <md-menu-item>Later today</md-menu-item>
+            <md-menu-item>Tomorrow</md-menu-item>
+            <md-menu-item>Next week</md-menu-item>
+            <md-menu-item>
+              <md-menu md-size="medium" md-align-trigger>
+                <div class="selectDate" md-menu-trigger v-on:click.stop>Select date and time</div>
+                <md-menu-content>
+                  <div>
+                    <div class="insideDate">
+                      <img src="../../assets/icons/backArrow.svg" alt="" srcset="">
+                      <div>Select date and time</div>
+                    </div>
+                    <hr>
+                    <div>
+                      <datetime class="datePicker" format="MM/DD/YYYY">
+                      </datetime>
+                    </div>
+                  </div>
+                </md-menu-content>
+              </md-menu>
+            </md-menu-item>
+          </md-menu-content>
+        </div>
+
+      </md-menu>
     </div>
     <div>
       <md-button class="md-icon-button">
-        <img src="../../assets/collaborator.svg" alt="" srcset="">
+        <img src="../../assets/icons/collaborator.svg" alt="" srcset="">
       </md-button>
     </div>
     <div>
       <md-menu md-direction="top-start">
         <md-button md-menu-trigger class="md-icon-button">
-          <img src="../../assets/color.svg" alt="" srcset="">
+          <img src="../../assets/icons/color.svg" alt="" srcset="">
         </md-button>
         <md-menu-content>
-          <!-- <div class="color1" v-for="color in colorArray">
-            <div v-for="color in color" class="colorAlign">
-              <md-button class="md-icon-button" @click="colorDisplay(color.color,cardObject)"
-                v-bind:style="{'background-color':color.color}"></md-button>
-            </div>
-          </div> -->
           <div class="displaycolor" v-for=" colors in colorArray">
             <div v-for="color in colors">
               <md-button class="md-fab md-mini" @click="colorsDisplay(color.color,cardObject)"
@@ -34,23 +57,23 @@
     </div>
     <div>
       <md-button class="md-icon-button">
-        <img src="../../assets/addImage.svg" alt="" srcset="">
+        <img src="../../assets/icons/addImage.svg" alt="" srcset="">
       </md-button>
     </div>
     <div>
       <md-button class="md-icon-button" v-if="!route" @click="archive(cardObject)">
-        <img src="../../assets/archive.svg" alt="" srcset="">
+        <img src="../../assets/icons/archive.svg" alt="" srcset="">
       </md-button>
     </div>
     <div>
       <md-button class="md-icon-button" v-if="route" @click="unarchive(cardObject)">
-        <img src="../../assets/unarchive.svg" alt="" srcset="">
+        <img src="../../assets/icons/unarchive.svg" alt="" srcset="">
       </md-button>
     </div>
     <div>
       <md-menu md-direction="bottom-start">
         <md-button class="md-icon-button" md-menu-trigger>
-          <img src="../../assets/more.svg" alt="" srcset="">
+          <img src="../../assets/icons/more.svg" alt="" srcset="">
           <md-menu-content class="menuContent">
             <md-menu-item class="deletepointer" @click="trash(cardObject)">Delete note</md-menu-item>
             <md-menu-item>Add label</md-menu-item>
@@ -61,7 +84,7 @@
   </div>
   <div v-if="route1">
     <md-button class="md-icon-button" @click="unTrash(cardObject)">
-      <img src="../../assets/restore.svg" alt="" srcset="">
+      <img src="../../assets/icons/restore.svg" alt="" srcset="">
     </md-button>
   </div>
 </div>

@@ -2,9 +2,10 @@ import { archive } from "../../services/services";
 import { isTrash } from "../../services/services";
 import { updateNote } from '../../services/services';
 import { updateColor } from '../../services/services';
+import datetime from 'vuejs-datetimepicker';
 export default {
   name: 'icon',
-  components: {},
+  components: { datetime },
   props: {
     cardObject: Object
   },

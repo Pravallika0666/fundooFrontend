@@ -1,44 +1,47 @@
-<section class="display-note">
-  <div class="displaycard">
-    <md-card v-for="card in cards" class="cardContainer"  v-bind:style="{ 'background-color': card.color }">
-      <div class="subnote">
-        <div class="displaytitle" @click="save(card)">
-          {{card.title}}
-        </div>
-        <div>
-          <md-button class="md-icon-button">
-            <img src="../../assets/pin.svg" alt="" srcset="">
-          </md-button>
-        </div>
-      </div>
-      <div class="displaytitle">
-        {{card.description}}
-      </div>
-      <icon :cardObject="card" @archivecard="archive"  @updateNote="updateNote" @trash="trash" @unTrash="unTrash" @unarchive="unarchive"></icon>
-    </md-card>
-  </div>
-  <div class="editCard">
-    <md-dialog :md-active.sync="showDialog">
-      <div class="dialogDesign">
-        <div class="dialogAlign">
-          <input class="noteTitle" placeholder="title" v-model="updatetitle"></input>
+<div v-bind:class="grid==true ? 'listView':'gridView'">
+  <div class="display-note">
+    <div class="displaycard">
+      <md-card v-for="card in cards" class="cardContainer" v-bind:style="{ 'background-color': card.color }">
+        <div class="subnote">
+          <div class="displaytitle" @click="save(card)">
+            {{card.title}}
+          </div>
           <div>
-            <img src="../../assets/pin.svg" alt="" srcset="">
+            <md-button class="md-icon-button">
+              <img src="../../assets/icons/pin.svg" alt="" srcset="">
+            </md-button>
+          </div>
+        </div>
+        <div class="displaytitle">
+          {{card.description}}
+        </div>
+        <icon :cardObject="card" @archivecard="archive" @updateNote="updateNote" @trash="trash" @unTrash="unTrash"
+          @unarchive="unarchive"></icon>
+      </md-card>
+    </div>
+    <div class="editCard">
+      <md-dialog :md-active.sync="showDialog">
+        <div class="dialogDesign">
+          <div class="dialogAlign">
+            <input class="noteTitle" placeholder="title" v-model="updatetitle"></input>
+            <div>
+              <img src="../../assets/icons/pin.svg" alt="" srcset="">
+            </div>
+          </div>
+          <div>
+            <input class="dailogDescription" placeholder="description" v-model="updatedescription">
+            </input>
           </div>
         </div>
         <div>
-          <input class="dailogDescription" placeholder="description" v-model="updatedescription">
-          </input>
-        </div>
-      </div>
-      <div>
-        <div class="dialogIcons">
-          <icon></icon>
-          <div>
-            <md-button class="md-primary" @click="editNote">Close</md-button>
+          <div class="dialogIcons">
+            <icon></icon>
+            <div>
+              <md-button class="md-primary" @click="editNote">Close</md-button>
+            </div>
           </div>
         </div>
-      </div>
-    </md-dialog>
+      </md-dialog>
+    </div>
   </div>
-</section>
+</div>

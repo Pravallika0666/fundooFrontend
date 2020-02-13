@@ -1,8 +1,7 @@
 import icon from "../icon"
 import { Object } from "core-js";
 import { updateNote } from "../../services/services";
-// import {color} from "../../services/services";
-
+import { EventBus } from "../../main";
 export default {
   name: 'display-note',
   components: { icon },
@@ -16,39 +15,42 @@ export default {
       updatetitle: "",
       updatedescription: "",
       updateCard: Object,
-      color: String
+      color: String,
+      grid: ""
     }
   },
   computed: {
 
   },
-  mounted() {
-
+  created() {
+    EventBus.$on('i-got-clicked', grid => {
+      this.grid = grid;
+    });
   },
   methods: {
-    archive(e) {
-      let ind = this.cards.indexOf(e)
+    archive(w) {
+      let ind = this.cards.indexOf(w)
       this.cards.splice(ind, 1)
     },
-    unarchive(e) {
-      this.archive(e);
+    unarchive(w) {
+      this.archive(w);
     },
-    trash(e) {
-      let ind = this.cards.indexOf(e)
+    trash(w) {
+      let ind = this.cards.indexOf(w)
       this.cards.splice(ind, 1)
     },
-    unTrash(e) {
-      this.trash(e)
+    unTrash(w) {
+      this.trash(w)
     },
-    updateNote(e) {
-      let ind = this.cards.indexOf(e)
+    updateNote(w) {
+      let ind = this.cards.indexOf(w)
       this.cards.splice(ind, 1)
     },
     save(card) {
       console.log("updateeeeeeeee", card);
       this.showDialog = true
       this.updatetitle = card.title,
-      this.updatedescription = card.description
+        this.updatedescription = card.description
       this.updateCard = card
     },
     editNote() {
@@ -66,15 +68,7 @@ export default {
         console.log("updateNote", res);
       })
     },
-    // colorDisplay(){
-    //   var object={
-    //     noteId:this.color._id,
-    //     color:this.color.color
-    //   }
-    //   color('http://localhost:4000/note/color',object).then((res)=>{
-    //     console.log("colordisplay",res)
-    //   })
-    // }
+
   }
 }
 

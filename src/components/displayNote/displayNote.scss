@@ -1,30 +1,94 @@
 @import "../../styles/variables";
 @import '../../styles/styles';
-.display-note {
-.displaycard{
-    margin-top: 40px;
+.gridView{
+    .display-note {
+        .displaycard{
+            margin-top: 40px;
+            @include dispflex(flex);
+            flex-wrap: wrap;
+            margin-left:3%;
+            @include text(justify);
+            display: flex;
+            flex-flow: inherit
+        }
+        .displaytitle{
+            @include dispflex(flex);
+            padding: 8px;
+        }
+        .cardContainer{
+            width:310px;
+            border-radius: 6px;
+            margin:1%
+        }
+      
+        .subnote{
+            @include dispflex(flex);
+            @include space(space-between);
+        }
+        .displaytitle{
+            word-break: break-all;
+            cursor: default;
+        }
+        }
+      
+         
+}
+.listView{
+    .display-note {
+        .displaycard{
+            margin-top: 40px;
+            @include dispflex(flex);
+            flex-wrap: wrap;
+            margin-left:3%;
+            @include text(justify);
+          
+        }
+        .displaytitle{
+            @include dispflex(flex);
+            padding: 8px;
+        }
+        .cardContainer{
+            width:650px;
+            border-radius: 6px;
+            margin:1%
+        }
+        
+        .subnote{
+            @include dispflex(flex);
+            @include space(space-between);
+        }
+        .displaytitle{
+            word-break: break-all;
+            cursor: default;
+        }
+        } 
+}
+.md-dialog{
+    border-radius: 5px;
+    width:600px;
+  //   height: 160px;
+    
+}
+.dialogAlign{
+    display: flex;
+    padding: 12px;
+}
+.dailogDescription{
+    padding:12px;
+    width:100%;
     @include dispflex(flex);
-    flex-wrap: wrap;
-    margin-left:3%;
-    @include text(justify);
+    letter-spacing: .00625em;
+    font-family:  $roboto-slab;
+    font-size: 1rem;
+    font-weight: 500;
+    // line-height: 1.5rem;
+    @include text(left);
+    border: none;
 }
-.displaytitle{
-    @include dispflex(flex);
-    padding: 8px;
-}
-.cardContainer{
-    width:310px;
-    border-radius: 6px;
-    margin:1%
-}
-.subnote{
-    @include dispflex(flex);
-    @include space(space-between);
-}
-.displaytitle{
-    word-break: break-all;
-    cursor: default;
-}
+.dialogIcons{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 .noteTitle{
     width:100%;
@@ -38,35 +102,3 @@
     border: none;
   
  }
-
- .dialogIcons{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-
-  .md-dialog{
-      border-radius: 5px;
-      width:600px;
-    //   height: 160px;
-      
-  }
-  .dialogAlign{
-      display: flex;
-      padding: 12px;
-  }
-  .dialogDesign{
-    //   padding:15px
-  }
-  .dailogDescription{
-      padding:12px;
-      width:100%;
-      @include dispflex(flex);
-      letter-spacing: .00625em;
-      font-family:  $roboto-slab;
-      font-size: 1rem;
-      font-weight: 500;
-      // line-height: 1.5rem;
-      @include text(left);
-      border: none;
-  }
