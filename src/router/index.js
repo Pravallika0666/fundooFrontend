@@ -25,7 +25,7 @@ const routes = [
   {
     path: "/",
     name: "login",
-    component: login
+    component: login,
   },
   {
     path: "/register",
@@ -46,6 +46,13 @@ const routes = [
     path: "/dashboard",
     name: "dashboard",
     component: dashboard,
+    beforeEnter: (to, from, next) => {
+      if (localStorage.getItem("token") === null || localStorage.getItem("token") === "" || localStorage.getItem("token") === undefined) {
+        next('/')
+      } else {
+        next(true)
+      }
+    },
     children: [
       {
         path: '/',
@@ -72,5 +79,6 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 });
+
 
 export default router;
