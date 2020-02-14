@@ -4,7 +4,7 @@ import {
   minLength
 } from 'vuelidate/lib/validators';
 import router from '../../router';
-import { getAll } from '../../services/services';
+import services from '../../services/services';
 
 export default {
   name: 'register',
@@ -80,7 +80,7 @@ export default {
         password: this.user.password,
         confirmpassword:this.user.confirmpassword
       }
-      getAll('http://localhost:4000/register', obj).then(res => {
+      services.getAll('http://localhost:4000/register', obj).then(res => {
         console.log("res", res);
         router.push('/')
       })
