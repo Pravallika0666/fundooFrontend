@@ -2,7 +2,7 @@ import { validationMixin } from 'vuelidate'
 import {
   required,
 } from 'vuelidate/lib/validators';
-import { getAll } from '../../services/services';
+import services from '../../services/services';
 export default {
   name: 'resetpwd',
   mixins: [validationMixin],
@@ -56,7 +56,7 @@ export default {
         password:this.user.password,
         confirmPassword:this.user.confirmpassword
       }
-      getAll('http://localhost:4000/resetpassword',obj).then(res=>{
+      services.getAll('http://localhost:4000/resetpassword',obj).then(res=>{
         console.log('res',res)
         
       })
