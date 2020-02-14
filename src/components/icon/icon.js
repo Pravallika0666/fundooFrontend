@@ -1,7 +1,4 @@
-import { archive } from "../../services/services";
-import { isTrash } from "../../services/services";
-import { updateNote } from '../../services/services';
-import { updateColor } from '../../services/services';
+import services from "../../services/services";
 import datetime from 'vuejs-datetimepicker';
 export default {
   name: 'icon',
@@ -13,6 +10,8 @@ export default {
     return {
       route: true,
       route1: true,
+      date:null,
+      reminder:null,
       colorArray: [
         [
           { color: "#FFFFFF", name: "White" },
@@ -52,7 +51,7 @@ export default {
       // console.log(this.$router.currentRoute.fullPath, "jkjf");
       this.route1 = true
     } else {
-      // console.log(this.$router.currentRoute.fullPath, "hh")
+
       this.route1 = false
     }
   },
@@ -62,7 +61,7 @@ export default {
         noteId: cardObject._id,
         isArchived: true
       }
-      archive('http://localhost:4000/note/archive', object).then(res => {
+      services.archive('http://localhost:4000/note/archive', object).then(res => {
         console.log("resssssss", res)
         this.$emit("archivecard", cardObject)
       })
@@ -72,7 +71,7 @@ export default {
         noteId: cardObject._id,
         isArchived: false
       }
-      archive('http://localhost:4000/note/archive', object).then(res => {
+      services.archive('http://localhost:4000/note/archive', object).then(res => {
         console.log("res1111", res);
         this.$emit("unarchive", cardObject)
 
@@ -83,7 +82,7 @@ export default {
         noteId: cardObject._id,
         isDeleted: true
       }
-      isTrash('http://localhost:4000/note/isTrash', object).then(res => {
+      services.isTrash('http://localhost:4000/note/isTrash', object).then(res => {
         console.log('trash response', res)
         this.$emit('trash', cardObject)
       })
@@ -93,7 +92,7 @@ export default {
         noteId: cardObject._id,
         isDeleted: false
       }
-      isTrash('http://localhost:4000/note/isTrash', object).then((res) => {
+      services.isTrash('http://localhost:4000/note/isTrash', object).then((res) => {
         console.log("untrash response", res);
         this.$emit('untrash', cardObject)
       })
@@ -102,7 +101,7 @@ export default {
       var object = {
         noteId: cardObject._id,
       }
-      updateNote('http://localhost:4000/note/updateNote', object).then((res) => {
+      services.updateNote('http://localhost:4000/note/updateNote', object).then((res) => {
         console.log("update response", res);
         this.$emit('updateNote', cardObject)
       })
@@ -121,7 +120,7 @@ export default {
         color: color
       }
       console.log("colorobject", object);
-      updateColor('http://localhost:4000/note/color', object).then((res) => {
+      services.updateColor('http://localhost:4000/note/color', object).then((res) => {
         console.log("color repsonse", res);
       })
     }
