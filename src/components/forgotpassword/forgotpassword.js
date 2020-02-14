@@ -2,7 +2,7 @@ import { validationMixin } from 'vuelidate';
 import {
   required
 } from 'vuelidate/lib/validators'
-import { getAll } from '../../services/services';
+import services from '../../services/services';
 import router from '../../router';
 export default {
   name: 'forgotpassword',
@@ -51,7 +51,7 @@ export default {
       var obj={
         email:this.forgotpassword.email
       }
-      getAll('http://localhost:4000/forgotpassword',obj).then(res=>{
+      services.getAll('http://localhost:4000/forgotpassword',obj).then(res=>{
         console.log("res",res)
         router.push('/')
       })
