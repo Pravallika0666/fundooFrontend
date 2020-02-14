@@ -1,5 +1,6 @@
 import icon from "../icon";
-import { addNote, messageService } from "../../services/services"
+import { messageService } from "../../services/services";
+import services from "../../services/services";
 import { validationMixin } from 'vuelidate'
 
 export default {
@@ -45,7 +46,7 @@ export default {
         color: this.bgcolor,
         isDeleted: this.delete
       }
-      addNote('http://localhost:4000/note/addNote', note).then(res => {
+     services.addNote('http://localhost:4000/note/addNote', note).then(res => {
         console.log("addnote", res);
         messageService.sendMessage("hiiiiiiiiiiii")
       })
