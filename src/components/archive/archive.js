@@ -1,5 +1,5 @@
 import displayNote from "../displayNote";
-import { getAllnote } from "../../services/services"
+import services from "../../services/services"
 export default {
   name: 'archive',
   components: { displayNote },
@@ -13,7 +13,7 @@ export default {
 
   },
   mounted() {
-    getAllnote('http://localhost:4000/note/getAllnote').then(res => {
+    services.getAllnote('http://localhost:4000/note/getAllnote').then(res => {
       console.log("resssssss", res);
       for (let index = 0; index < res.data.length; index++) {
         if (res.data[index].isArchived == true) {
