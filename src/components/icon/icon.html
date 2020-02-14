@@ -21,8 +21,18 @@
                       <div>Select date and time</div>
                     </div>
                     <hr>
+                    <div class="md-layout md-gutter">
+                      <div class="md-layout-item">
+                        <md-field>
+                          <md-select v-model="reminder" name="reminder" id="reminder" placeholder="Reminder" v-on:click.stop>
+                            <md-option value="laterToday">Later today</md-option>
+                            <md-option value="nextWeek">Next week</md-option>
+                          </md-select>
+                        </md-field>
+                      </div>
+                    </div>
                     <div>
-                      <datetime class="datePicker" format="MM/DD/YYYY">
+                      <datetime class="datePicker" format="MM/DD/YYYY" v-model="date">
                       </datetime>
                     </div>
                   </div>
