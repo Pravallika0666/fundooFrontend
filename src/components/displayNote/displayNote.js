@@ -1,6 +1,6 @@
-import icon from "../icon"
+import icon from "../icon";
 import { Object } from "core-js";
-import { updateNote } from "../../services/services";
+import services from "../../services/services";
 import { EventBus } from "../../main";
 export default {
   name: 'display-note',
@@ -50,7 +50,7 @@ export default {
       console.log("updateeeeeeeee", card);
       this.showDialog = true
       this.updatetitle = card.title,
-        this.updatedescription = card.description
+      this.updatedescription = card.description
       this.updateCard = card
     },
     editNote() {
@@ -64,11 +64,19 @@ export default {
         title: this.updateCard.title,
         description: this.updateCard.description
       }
-      updateNote('http://localhost:4000/note/updateNote', object).then(res => {
+      services.updateNote('http://localhost:4000/note/updateNote', object).then(res => {
         console.log("updateNote", res);
       })
     },
-
+    chipDelete(card) {
+      var object = {
+        noteId: card._id,
+        Reminder: ""
+      }
+      services.addReminder('http://localhost:4000/note/addReminder', object).then(res => {
+        console.log("chipdelete", res);
+      })
+    }
   }
 }
 
