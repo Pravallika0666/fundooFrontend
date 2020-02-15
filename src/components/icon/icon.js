@@ -10,8 +10,11 @@ export default {
     return {
       route: true,
       route1: true,
-      date:null,
-      reminder:null,
+      date: null,
+      inline: "",
+      string: null,
+      labelArray:[],
+      reminder: null,
       Arraycolor: [
         [
           { color: "#FFFFFF", name: "White" },
@@ -41,19 +44,22 @@ export default {
   },
   mounted() {
     if (this.$router.currentRoute.fullPath === "/dashboard/archive") {
-      // console.log(this.$router.currentRoute.fullPath, "hikkkkkkkkkkkkkkk");
       this.route = true
     } else {
-      // console.log(this.$router.currentRoute.fullPath, "hhhhhhhhhhhhhhhhhhhhhh");
       this.route = false
     }
     if (this.$router.currentRoute.fullPath === "/dashboard/trash") {
-      // console.log(this.$router.currentRoute.fullPath, "jkjf");
       this.route1 = true
     } else {
 
       this.route1 = false
     }
+
+    services.getLabels('http://localhost:4000/note/getLabels').then(res => {
+      console.log("");
+
+      this.labelArray = res.data;
+    })
   },
   methods: {
     archive(cardObject) {
