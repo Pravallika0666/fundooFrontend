@@ -98,44 +98,6 @@
             </div>
           </div>
           <div>
-            <!-- <md-dialog :md-active.sync="showDialog">
-              <md-dialog-title>Edit Labels</md-dialog-title>
-              <div class="editDialogalign">
-                <div class="llll">
-                  <div>
-                    <md-button class="md-icon-button">
-                      <img src="../../assets/icons/exitEdit.svg" altsrc="">
-                    </md-button>
-                  </div>
-
-                  <div>
-                    <input class="createLabel" v-model="inline" placeholder="create a label"></input>
-                  </div>
-                  <div>
-                    <md-button class="md-icon-button" @click="labelSave()">
-                      <img src='../../assets/icons/createEdit.svg' alt="">
-                      <div></div>
-                    </md-button>
-                  </div>
-                </div>
-                <div class="labelss" v-for="label in labelArray">
-                  {{label.nameLabel}}
-                </div>
-              </div>
-              <div class="labels">
-                <div class="createdLabel" v-for="nameLabel in object">
-                  <md-button class="md-icon-button">
-                    <img src="../../assets/icons/label.svg">
-                  </md-button>
-                  <div>{{nameLabel}}</div>
-                </div>
-                <div>
-                  <md-button class="md-icon-button">
-                    <img src="../../assets/icons/editLabel.svg">
-                  </md-button>
-                </div>
-              </div>
-            </md-dialog> -->
             <md-dialog class="dialogContainer" :md-active.sync="showDialog">
               <div class="dialogTitle">
                 Edit Labels
