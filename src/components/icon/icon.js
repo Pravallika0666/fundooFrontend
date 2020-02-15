@@ -12,7 +12,7 @@ export default {
       route1: true,
       date:null,
       reminder:null,
-      colorArray: [
+      Arraycolor: [
         [
           { color: "#FFFFFF", name: "White" },
           { color: "#F28B82", name: "Red" },
