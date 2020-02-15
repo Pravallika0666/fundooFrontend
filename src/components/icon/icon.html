@@ -59,7 +59,7 @@
           <img src="../../assets/icons/color.svg" alt="" srcset="">
         </md-button>
         <md-menu-content>
-          <div class="displaycolor" v-for=" colors in colorArray">
+          <div class="displaycolor" v-for=" colors in Arraycolor">
             <div v-for="color in colors">
               <md-button class="md-fab md-mini" @click="colorsDisplay(color.color,cardObject)"
                 v-bind:style="{ 'background-color': color.color }">
