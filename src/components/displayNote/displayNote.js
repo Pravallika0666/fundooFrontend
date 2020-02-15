@@ -75,6 +75,8 @@ export default {
       }
       services.addReminder('http://localhost:4000/note/addReminder', object).then(res => {
         console.log("chipdelete", res);
+        this.$emit("reminder", card)
+
       })
     }
   }

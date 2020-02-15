@@ -38,9 +38,27 @@
 }
 .selectDate{
     cursor: pointer;
+    padding: 10px;
 }
 .insideDate{
-    display: flex
+    @include dispflex(flex);   
 }
-
- 
+.clockIcon{
+    @include dispflex(flex); 
+    font-family: $roboto-slab;
+    font-size: 13px;
+}
+ .subheader{
+    cursor: pointer;
+    font-family: $roboto-slab;
+    font-size: 13px;
+    // opacity: 0.87;
+    @include text(initial);
+    padding: 15px 24px 10px;
+}
+.ReminderDailogHeader{
+    font-family: $roboto-slab;
+    font-size: 15px;
+    padding: 15px 24px 10px;
+    user-select: none;
+}

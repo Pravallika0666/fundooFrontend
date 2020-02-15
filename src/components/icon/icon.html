@@ -7,13 +7,16 @@
         </md-button>
         <div class="remindCard">
           <md-menu-content class="remindMenuContent">
-            <md-menu-item>Reminder:</md-menu-item>
-            <md-menu-item>Later today</md-menu-item>
-            <md-menu-item>Tomorrow</md-menu-item>
-            <md-menu-item>Next week</md-menu-item>
+            <div class="ReminderDailogHeader">Reminder:</div>
+            <div class="subheader">Later today</div>
+            <div class="subheader">Tomorrow</div>
+            <div class="subheader">Next week</div>
             <md-menu-item>
               <md-menu md-size="medium" md-align-trigger>
-                <div class="selectDate" md-menu-trigger v-on:click.stop>Select date and time</div>
+                <div class="clockIcon">
+                  <img src="../../assets/icons/clockdateTime.svg">
+                  <div class="selectDate" md-menu-trigger v-on:click.stop>Select date and time</div>
+                </div>
                 <md-menu-content>
                   <div>
                     <div class="insideDate">
@@ -24,8 +27,9 @@
                     <div class="md-layout md-gutter">
                       <div class="md-layout-item">
                         <md-field>
-                          <md-select v-model="reminder" name="reminder" id="reminder" placeholder="Reminder" v-on:click.stop>
-                            <md-option value="laterToday">Later today</md-option>
+                          <md-select v-model="reminder" name="reminder" id="reminder" placeholder="Reminder"
+                            v-on:click.stop>
+                            <md-option value="laterToday" >Later today</md-option>
                             <md-option value="nextWeek">Next week</md-option>
                           </md-select>
                         </md-field>
