@@ -62,3 +62,31 @@
     padding: 15px 24px 10px;
     user-select: none;
 }
+.changeLabel{
+    cursor: pointer;
+}
+.changeLabels{
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    width: 60%;
+    overflow: hidden;
+}
+.clickChangelabel{
+    cursor: pointer;
+}
+
+.plusicon{
+    padding-left: 10px;
+}
+.pluscreate{
+    display: flex;
+    padding-left: 15px;
+}
+.labelShow{
+    padding-left: 10px;
+}
+.labelContainerMenu{
+    width:200px;
+}
