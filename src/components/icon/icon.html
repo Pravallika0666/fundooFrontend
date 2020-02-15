@@ -29,7 +29,7 @@
                         <md-field>
                           <md-select v-model="reminder" name="reminder" id="reminder" placeholder="Reminder"
                             v-on:click.stop>
-                            <md-option value="laterToday" >Later today</md-option>
+                            <md-option value="laterToday">Later today</md-option>
                             <md-option value="nextWeek">Next week</md-option>
                           </md-select>
                         </md-field>
@@ -90,7 +90,26 @@
           <img src="../../assets/icons/more.svg" alt="" srcset="">
           <md-menu-content class="menuContent">
             <md-menu-item class="deletepointer" @click="trash(cardObject)">Delete note</md-menu-item>
-            <md-menu-item>Add label</md-menu-item>
+            <md-menu-item>
+              <div class="labelContainerMenu">
+                <md-menu md-direction="bottom-start" >
+                  <div class="clickChangelabel" md-menu-trigger v-on:click.stop>
+                    Change label
+                  </div>
+                  <md-menu-content>
+                    <md-menu-item>Label note</md-menu-item>
+                    <md-menu-item>
+                      <input placeholder="Enter label name" v-model="inline" class="changeLabels" v-on:click.stop>
+                    </md-menu-item>
+                    <div class="pluscreate" v-for="label in labelArray">
+                      <md-checkbox v-model="string" value="my-checkbox">
+                        <div class="labelShow">{{label.nameLabel}}</div>
+                      </md-checkbox>
+                    </div>
+                  </md-menu-content>
+                </md-menu>
+              </div>
+            </md-menu-item>
           </md-menu-content>
         </md-button>
       </md-menu>
