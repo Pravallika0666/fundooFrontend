@@ -1,7 +1,8 @@
 <div v-bind:class="grid==true ? 'listView':'gridView'">
   <div class="display-note">
     <div class="displaycard">
-      <md-card md-with-hover v-for="card in cards" class="cardContainer" v-bind:style="{ 'background-color': card.color }">
+      <md-card md-with-hover v-for="card in cards" class="cardContainer"
+        v-bind:style="{ 'background-color': card.color }">
         <div class="subnote">
           <div class="displaytitle" @click="save(card)">
             {{card.title}}
@@ -15,11 +16,12 @@
         <div class="displaytitle">
           {{card.description}}
         </div>
-        <div v-for="chip in card.reminder">
-          <md-chip v-if="card.reminder.length>0" class="md-primary" @md-delete="chipDelete(card)" md-deletable> {{note| moment("ddd,DD,HH,A") }}</md-chip>
+        <div v-for="chip in cards.Reminder">
+          <md-chip v-if="cards.Reminder.length>0" class="md-primary" @md-delete="chipDelete(card)" md-deletable>
+            {{note| moment("ddd,DD,HH,A") }}</md-chip>
         </div>
-        <icon :cardObject="card" @archivecard="archive" @reminder="reminder(card)" @updateNote="updateNote" @trash="trash" @unTrash="unTrash"
-          @unarchive="unarchive"></icon>
+        <icon :cardObject="card" @archivecard="archive" @reminder="chipDelete" @updateNote="updateNote" @trash="trash"
+          @unTrash="unTrash" @unarchive="unarchive"></icon>
       </md-card>
     </div>
     <div class="editCard">
