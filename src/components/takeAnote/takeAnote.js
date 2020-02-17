@@ -18,10 +18,10 @@ export default {
       }, userSaved: false,
       sending: false,
       lastUser: null,
-      reminder:String,
+      reminder:"",
       pinned:false,
-      archive:String,
-      bgcolor:String,
+      archive:false,
+      bgcolor:"#FFFF",
       delete:false
     }
   },
@@ -38,14 +38,17 @@ export default {
     addNote(){
       this.flag = !this.flag
       var note = {
+        userId:localStorage.getItem('_id'),
         title: this.takeNote.title,
         description: this.takeNote.description,
-        Reminder: this.isreminder,
-        isPinned: this.isPinned,
-        isArchived: this.isArchive,
+        Reminder: this.reminder,
+        isPinned: this.pinned,
+        isArchived: this.archive,
         color: this.bgcolor,
         isDeleted: this.delete
       }
+      console.log(note,"ssssssssssssssssssxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+      
      services.addNote('http://localhost:4000/note/addNote', note).then(res => {
         console.log("addnote", res);
         messageService.sendMessage("hiiiiiiiiiiii")
