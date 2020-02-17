@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { Subject } from 'rxjs';
-
+//subject is like an observable,but can multicast to many observers
 const subject = new Subject();
-
+//observables are used to watch streams and emit functions when a value, error or complete signal is returned
 export const messageService = {
   sendMessage: message => subject.next({ text: message }),
   clearMessages: () => subject.next(),
