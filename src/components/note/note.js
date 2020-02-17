@@ -12,6 +12,7 @@ export default {
     }
   },
   created() {
+    //subscription is an object that represents a deposable resource that is execution of observable
     this.subscription = messageService.getMessage().subscribe(message => {
       if (message) {
         services.getAllnote('http://localhost:4000/note/getAllnote')
@@ -36,6 +37,8 @@ export default {
   },
   mounted() {
    services.getAllnote('http://localhost:4000/note/getAllnote').then(res => {
+     console.log("notess res",res);
+     
       var carddata = res.data
       this.notes = []
       for (let i = 0; i < carddata.length; i++) {
