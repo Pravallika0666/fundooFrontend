@@ -1,6 +1,6 @@
 import icon from "../icon";
 import { Object } from "core-js";
-import services from "../../services/services";
+import services, { messageService } from "../../services/services";
 import { EventBus } from "../../main";
 export default {
   name: 'display-note',
@@ -16,7 +16,9 @@ export default {
       updatedescription: "",
       updateCard: Object,
       color: String,
-      grid: ""
+      reminder:"",
+      grid: "",
+      note:""
     }
   },
   computed: {
@@ -76,7 +78,7 @@ export default {
       services.addReminder('http://localhost:4000/note/addReminder', object).then(res => {
         console.log("chipdelete", res);
         this.$emit("reminder", card)
-
+        messageService.sendMessage("message!!")
       })
     }
   }
