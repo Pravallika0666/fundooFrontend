@@ -156,7 +156,8 @@ font-family: $roboto-slab}
   padding: 10px;
 } 
 .dialogContainer{
-  padding: 15px
+  padding: 15px;
+  overflow: auto !important;
 }
 .dialogTitle{
   padding: 15px;
