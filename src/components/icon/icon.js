@@ -8,13 +8,15 @@ export default {
   },
   data() {
     return {
+      flag: true,
       route: true,
       route1: true,
       date: null,
+      dateObject: new Date(),
       inline: "",
-      string: null,
-      labelArray:[],
+      string: [],
       reminder: null,
+      labelArray: [],
       Arraycolor: [
         [
           { color: "#FFFFFF", name: "White" },
@@ -128,6 +130,28 @@ export default {
       console.log("colorobject", object);
       services.updateColor('http://localhost:4000/note/color', object).then((res) => {
         console.log("color repsonse", res);
+      })
+    },
+    saveLabel() {
+      this.flag = !this.flag;
+    },
+    reminderLaterToday(cardObject) {
+      let reminder = new Date(
+        this.dataObject.getFullYear(),
+        this.dataObject.getMonth(),
+        this.dataObject.getDate(),
+        20,
+        0,
+        0,
+        0
+      )
+      var object = {
+        userId: cardObject._id,
+        Reminder: reminder
+      }
+      console.log("reminderrr", reminder);
+      services.addReminder('http://localhost:4000/note/addReminder', object).then((res) => {
+        console.log("reminder set", res);
       })
     }
   }
