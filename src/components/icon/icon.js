@@ -59,7 +59,6 @@ export default {
 
     services.getLabels('http://localhost:4000/note/getLabels').then(res => {
       console.log("");
-
       this.labelArray = res.data;
     })
   },
@@ -154,6 +153,18 @@ export default {
         console.log("reminder set", res);
       })
     }
+  },
+  createLabel() {
+    console.log("jjjjjjjjjjjjjjjjjjjjjjjjjjj");
+    
+    // var object = {
+    //   nameLabel: this.inline
+    // };
+    // services.labelCreate('http://localhost:4000/note/labelCreate', object).then((res)=>{
+    //   console.log("labelsResponse",res);
+    //   this.object.push(res.data.nameLabel)
+    // })
+
   }
 }
 
