@@ -84,6 +84,7 @@
         <img src="../../assets/icons/unarchive.svg" alt="" srcset="">
       </md-button>
     </div>
+
     <div>
       <md-menu md-direction="bottom-start">
         <md-button class="md-icon-button" md-menu-trigger>
@@ -98,22 +99,28 @@
                   </div>
                   <md-menu-content>
                     <md-menu-item>Label note</md-menu-item>
-                    <md-menu-item>
-                      <div class="changesavelabel">
-                        <input placeholder="Enter label name" @click="saveLabel()" v-model="inline" class="changeLabels"
-                          v-on:click.stop>
-                        <img src="../../assets/icons/searchInLabels.svg">
+                    <div class="changesavelabel" v-if="flag">
+                      <input placeholder="Enter label name" @click="saveLabel()" v-model="inline" class="changeLabels"
+                        v-on:click.stop>
+                      <img src="../../assets/icons/searchInLabels.svg">
+                    </div>
+                    <div v-if="flag">
+                      <div class="pluscreate" v-for="label in labelArray">
+                        <input type="checkbox" id="labelArray" v-model="string" value="labelArray">
+                        </input>
+                        <div class="labelShow">{{label.nameLabel}}</div>
                       </div>
-                    </md-menu-item>
-                    <div class="pluscreate" v-for="label in labelArray">
-                      <input type="checkbox" id="labelArray" v-model="string" value="labelArray">
-                      </input>
-                      <div class="labelShow">{{label.nameLabel}}</div>
                     </div>
-                    <div @click="saveLabel()">
-                      <img src="../../assets/icons/createplus.svg">
-                      create '{{inline}}'
+                    <div>
+                      <hr>
+                      <div v-if="!flag" @click="createLabel">
+                        <img src="../../assets/icons/createplus.svg">
+                        <div>
+                          create {{inline}}
+                        </div>
+                      </div>
                     </div>
+
                   </md-menu-content>
                 </md-menu>
               </div>
