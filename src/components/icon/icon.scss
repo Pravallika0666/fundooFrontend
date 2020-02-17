@@ -81,7 +81,7 @@
     padding-left: 10px;
 }
 .pluscreate{
-    display: flex;
+    @include dispflex(flex); 
     padding-left: 15px;
 }
 .labelShow{
@@ -89,4 +89,8 @@
 }
 .labelContainerMenu{
     width:200px;
+}
+.changesavelabel{
+    @include dispflex(flex); 
+    @include space(space-between); 
 }
