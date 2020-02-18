@@ -101,7 +101,7 @@
                   <div class="changesavelabel">
                     <input placeholder="Enter label name" @click="saveLabel()" v-model="inline" class="changeLabels"
                       v-on:click.stop>
-                    <img src="../../assets/icons/searchInLabels.svg">
+                    <img class="searchIcon" src="../../assets/icons/searchInLabels.svg">
                   </div>
                   <div v-if="flag">
                     <div class="pluscreate" v-for="label in labelArray">
@@ -112,12 +112,17 @@
                   </div>
                   <div v-if="!flag">
                     <hr>
-                    <div @click="createLabel">
+                    <md-button @click="saveLabel()" v-model="string" class="labeledCreate" v-on:click.stop>
                       <img src="../../assets/icons/createplus.svg">
                       <div>
                         create {{inline}}
                       </div>
-                    </div>
+                      <div class="pluscreate" v-for="label in labelArray">
+                        <input type="checkbox" id="labelArray" v-model="string" value="labelArray">
+                        </input>
+                        <div class="labelShow">{{label.nameLabel}}</div>
+                      </div>
+                    </md-button>
                   </div>
                 </md-menu-content>
               </md-menu>
