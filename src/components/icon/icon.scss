@@ -94,3 +94,9 @@
     @include dispflex(flex); 
     @include space(space-between); 
 }
+.labeledCreate{
+    @include dispflex(flex); 
+}
+.searchIcon{
+    height:"18px"
+}
