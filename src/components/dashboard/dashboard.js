@@ -12,6 +12,7 @@ export default {
   data() {
     return {
       file: "",
+      search: null,
       flag: true,
       showSidepanel: false,
       item: String,
@@ -24,8 +25,9 @@ export default {
       object: [],
       single: "",
       image: String,
-      labelArray:[],
-      nameLabel:""
+      labelArray: [],
+      nameLabel: "",
+      notes: []
     }
   },
   computed: {
@@ -38,7 +40,7 @@ export default {
     this.url = "Notes";
     services.getLabels('http://localhost:4000/note/getLabels').then(res => {
       console.log("");
-      
+
       this.labelArray = res.data;
     });
     this.image = localStorage.getItem('image')
@@ -92,7 +94,12 @@ export default {
       services.imageUpload('http://localhost:4000/imageUpload', data).then(res => {
         console.log("image upload response", res.data);
         this.image = res.data
-        localStorage.setItem("image",res.data)
+        localStorage.setItem("image", res.data)
+      })
+    },
+    search() {
+      services.search('http://localhost:4000/note/search').then(res => {
+        console.log("searchResponse", res.data);
       })
     }
   }
