@@ -96,11 +96,6 @@ export default {
         this.image = res.data
         localStorage.setItem("image", res.data)
       })
-    },
-    search() {
-      services.search('http://localhost:4000/note/search').then(res => {
-        console.log("searchResponse", res.data);
-      })
     }
   }
 }
