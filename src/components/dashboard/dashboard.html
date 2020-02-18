@@ -12,6 +12,14 @@
           <div class="keep">
             <span class="title">Keep</span>
           </div>
+          <div class="search">
+            <md-button class="md-icon-button">
+              <img class="searchBarIcon" src="../../assets/icons/searchInLabels.svg">
+            </md-button>
+            <md-autocomplete v-model="search" @click="search()" :md-options="notes" md-layout="box">
+              <label class="searchTitle">Search</label>
+            </md-autocomplete>
+          </div>
         </div>
         <div class="toolbaricons">
           <div class="threeicons">
