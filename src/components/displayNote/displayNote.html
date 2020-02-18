@@ -16,9 +16,9 @@
         <div class="displaytitle">
           {{card.description}}
         </div>
-        <div v-for="chip in cards.Reminder">
-          <md-chip v-if="cards.Reminder.length>0" class="md-primary" @md-delete="chipDelete(card)" md-deletable>
-            {{note| moment("ddd,DD,HH,A") }}</md-chip>
+        <div v-for="note in card.Reminder">
+          <md-chip v-if="card.Reminder.length>0" class="md-primary" @md-delete="chipDelete(card)" md-deletable>
+            {{note | moment("ddd,DD,HH,A") }}</md-chip>
         </div>
         <icon :cardObject="card" @archivecard="archive" @reminder="chipDelete" @updateNote="updateNote" @trash="trash"
           @unTrash="unTrash" @unarchive="unarchive"></icon>
