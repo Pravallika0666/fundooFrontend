@@ -21,7 +21,7 @@ export default {
 
             this.notes = [];
             for (let index = 0; index < res.data.length; index++) {
-              if (!res.data[index].isArchived && !res.data[index].isDeleted) {
+              if (!res.data[index].isArchived && !res.data[index].isDeleted && !res.data[index].Reminder) {
                 this.notes.push(res.data[index]);
               }
             }
@@ -36,13 +36,13 @@ export default {
 
   },
   mounted() {
-   services.getAllnote('http://localhost:4000/note/getAllnote').then(res => {
-     console.log("notess res",res);
-     
+    services.getAllnote('http://localhost:4000/note/getAllnote').then(res => {
+      console.log("notess res", res);
+
       var carddata = res.data
       this.notes = []
       for (let i = 0; i < carddata.length; i++) {
-        if (!carddata[i].isArchived && !carddata[i].isDeleted) {
+        if (!carddata[i].isArchived && !carddata[i].isDeleted && !carddata[i].Reminder) {
           this.notes.push(carddata[i])
         }
       }
