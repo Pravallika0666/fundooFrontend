@@ -33,14 +33,17 @@ export default {
   addReminder(url, data) {
     return axios.post(url, data).then(res => res.data)
   },
-  labelCreate(url,data){
-    return axios.post(url,data).then(res=>res.data)
+  labelCreate(url, data) {
+    return axios.post(url, data).then(res => res.data)
   },
-  imageUpload(url,data){
-    return axios.post(url,data).then(res=>res.data)
+  imageUpload(url, data) {
+    return axios.post(url, data).then(res => res.data)
   },
-  getLabels(url,data){
-    return axios.get(url,data).then(res=>res.data)
+  getLabels(url, data) {
+    return axios.get(url, data).then(res => res.data)
+  },
+  search(url) {
+    return axios.post(url).then(res => res.data)
   }
 }
 
