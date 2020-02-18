@@ -29,8 +29,9 @@
                         <md-field>
                           <md-select v-model="reminder" name="reminder" id="reminder" placeholder="Reminder"
                             v-on:click.stop>
-                            <md-option value="laterToday" @click="reminderLaterToday(cardObject)">Later today
-                            </md-option>
+                            <div value="laterToday" @click="reminderLaterToday(cardObject)">Later today
+                              <md-option value="option" @click="time('08:00')">8:00 AM</md-option>
+                            </div>
                             <md-option value="nextWeek">Next week</md-option>
                           </md-select>
                         </md-field>
@@ -112,15 +113,10 @@
                   </div>
                   <div v-if="!flag">
                     <hr>
-                    <md-button @click="saveLabel()" v-model="string" class="labeledCreate" v-on:click.stop>
+                    <md-button v-on:click="createLabel()" v-model="inline" class="labeledCreate" v-on:click.stop>
                       <img src="../../assets/icons/createplus.svg">
                       <div>
                         create {{inline}}
-                      </div>
-                      <div class="pluscreate" v-for="label in labelArray">
-                        <input type="checkbox" id="labelArray" v-model="string" value="labelArray">
-                        </input>
-                        <div class="labelShow">{{label.nameLabel}}</div>
                       </div>
                     </md-button>
                   </div>
