@@ -18,11 +18,11 @@ export default {
       }, userSaved: false,
       sending: false,
       lastUser: null,
-      reminder:"",
-      pinned:false,
-      archive:false,
-      bgcolor:"#FFFF",
-      delete:false
+      reminder: "",
+      pinned: false,
+      archive: false,
+      bgcolor: "#FFFF",
+      delete: false
     }
   },
   computed: {
@@ -33,12 +33,11 @@ export default {
   methods: {
     openCard() {
       this.flag = !this.flag
-    },   
-  
-    addNote(){
+    },
+    addNote() {
       this.flag = !this.flag
       var note = {
-        userId:localStorage.getItem('_id'),
+        userId: localStorage.getItem('_id'),
         title: this.takeNote.title,
         description: this.takeNote.description,
         Reminder: this.reminder,
@@ -47,9 +46,9 @@ export default {
         color: this.bgcolor,
         isDeleted: this.delete
       }
-      console.log(note,"ssssssssssssssssssxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-      
-     services.addNote('http://localhost:4000/note/addNote', note).then(res => {
+      console.log(note, "notesss");
+
+      services.addNote('http://localhost:4000/note/addNote', note).then(res => {
         console.log("addnote", res);
         messageService.sendMessage("hiiiiiiiiiiii")
       })
