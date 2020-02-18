@@ -16,9 +16,7 @@ export default {
       updatedescription: "",
       updateCard: Object,
       color: String,
-      reminder:"",
-      grid: "",
-      note:""
+      grid: ""
     }
   },
   computed: {
@@ -52,7 +50,7 @@ export default {
       console.log("updateeeeeeeee", card);
       this.showDialog = true
       this.updatetitle = card.title,
-      this.updatedescription = card.description
+        this.updatedescription = card.description
       this.updateCard = card
     },
     editNote() {
@@ -75,6 +73,7 @@ export default {
         noteId: card._id,
         Reminder: ""
       }
+      console.log("reminderObject",object);
       services.addReminder('http://localhost:4000/note/addReminder', object).then(res => {
         console.log("chipdelete", res);
         this.$emit("reminder", card)
