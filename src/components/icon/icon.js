@@ -154,18 +154,18 @@ export default {
       })
     }
   },
-  createLabel() {
-    console.log("jjjjjjjjjjjjjjjjjjjjjjjjjjj");
+  // createLabel() {
+  //   console.log("jjjjjjjjjjjjjjjjjjjjjjjjjjj");
     
-    // var object = {
-    //   nameLabel: this.inline
-    // };
-    // services.labelCreate('http://localhost:4000/note/labelCreate', object).then((res)=>{
-    //   console.log("labelsResponse",res);
-    //   this.object.push(res.data.nameLabel)
-    // })
+  //   var object = {
+  //     nameLabel: this.inline
+  //   };
+  //   services.labelCreate('http://localhost:4000/note/labelCreate', object).then((res)=>{
+  //     console.log("labelsResponse",res);
+  //     this.object.push(res.data.nameLabel)
+  //   })
 
-  }
+  // }
 }
 
 
