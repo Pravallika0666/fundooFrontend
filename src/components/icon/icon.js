@@ -56,7 +56,6 @@ export default {
 
       this.route1 = false
     }
-
     services.getLabels('http://localhost:4000/note/getLabels').then(res => {
       console.log("");
       this.labelArray = res.data;
@@ -135,10 +134,11 @@ export default {
       this.flag = !this.flag;
     },
     reminderLaterToday(cardObject) {
+      console.log("reminderrrrrrrrrrrrrrrr");
       let reminder = new Date(
-        this.dataObject.getFullYear(),
-        this.dataObject.getMonth(),
-        this.dataObject.getDate(),
+        this.dateObject.getFullYear(),
+        this.dateObject.getMonth(),
+        this.dateObject.getDate(),
         20,
         0,
         0,
@@ -154,18 +154,17 @@ export default {
       })
     }
   },
-  // createLabel() {
-  //   console.log("jjjjjjjjjjjjjjjjjjjjjjjjjjj");
-    
-  //   var object = {
-  //     nameLabel: this.inline
-  //   };
-  //   services.labelCreate('http://localhost:4000/note/labelCreate', object).then((res)=>{
-  //     console.log("labelsResponse",res);
-  //     this.object.push(res.data.nameLabel)
-  //   })
+  createLabel: function () {
+    console.log("jjjjjjjjjjjjjjjjjjjjjjjjjjj");
+    var object = {
+      nameLabel: this.inline
+    };
+    services.labelCreate('http://localhost:4000/note/labelCreate', object).then((res) => {
+      console.log("labelsResponse", res);
+      this.object.push(res.data.nameLabel)
+    })
 
-  // }
+  }
 }
 
 
