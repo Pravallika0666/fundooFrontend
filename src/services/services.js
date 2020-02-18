@@ -41,9 +41,6 @@ export default {
   },
   getLabels(url, data) {
     return axios.get(url, data).then(res => res.data)
-  },
-  search(url) {
-    return axios.post(url).then(res => res.data)
   }
 }
 
