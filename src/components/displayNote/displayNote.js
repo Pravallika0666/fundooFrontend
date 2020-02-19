@@ -75,7 +75,7 @@ export default {
       console.log("reminderObject", object);
       services.deleteReminder('http://localhost:4000/note/deleteReminder', object).then(res => {
         console.log("chipdelete", res);
-        this.$emit("reminder", card)
+        this.$emit("Reminder", card)
         messageService.sendMessage("message!!")
       })
     }
