@@ -2,7 +2,6 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 Vue.use(VueRouter);
 import { EventBus } from "../../main";
-// import { getAll } from "../../services/services";
 import services from "../../services/services";
 export default {
   name: 'dashboard',
@@ -12,7 +11,7 @@ export default {
   data() {
     return {
       file: "",
-      search: null,
+      search: [],
       flag: true,
       showSidepanel: false,
       item: String,
