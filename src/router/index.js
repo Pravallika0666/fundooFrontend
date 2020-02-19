@@ -13,7 +13,7 @@ import { MdButton, MdContent, MdTabs } from 'vue-material/dist/components'
 
 import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css'
-
+Vue.use(require("vue-moment"));
 Vue.use(VueMaterial)
 Vue.use(MdButton)
 Vue.use(MdContent)
