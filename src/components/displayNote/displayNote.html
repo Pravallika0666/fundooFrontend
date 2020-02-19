@@ -17,12 +17,12 @@
           {{card.description}}
         </div>
         <div class="reminderChip">
-          <div v-for="note in card.Reminder">
-            <md-chip v-if="card.Reminder.length>0" class="md-primary" @md-delete="chipDelete(card)" md-deletable>
-              {{ note | moment("ddd,DD,HH,A") }}</md-chip>
+          <div>
+            <md-chip v-if="card.Reminder!= '' "  @md-delete="chipDelete(card)" md-deletable>
+              {{ card.Reminder | moment("ddd,DD,HH,A") }}</md-chip>
           </div>
         </div>
-        <icon :cardObject="card" @archivecard="archive" @reminder="chipDelete" @updateNote="updateNote" @trash="trash"
+        <icon :cardObject="card" @archivecard="archive" @Reminder="chipDelete" @updateNote="updateNote" @trash="trash"
           @unTrash="unTrash" @unarchive="unarchive"></icon>
       </md-card>
     </div>
