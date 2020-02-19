@@ -1,5 +1,4 @@
 import icon from "../icon";
-import { Object } from "core-js";
 import services, { messageService } from "../../services/services";
 import { EventBus } from "../../main";
 export default {
@@ -73,8 +72,8 @@ export default {
         noteId: card._id,
         Reminder: ""
       }
-      console.log("reminderObject",object);
-      services.addReminder('http://localhost:4000/note/addReminder', object).then(res => {
+      console.log("reminderObject", object);
+      services.deleteReminder('http://localhost:4000/note/deleteReminder', object).then(res => {
         console.log("chipdelete", res);
         this.$emit("reminder", card)
         messageService.sendMessage("message!!")
