@@ -50,9 +50,25 @@
       </md-menu>
     </div>
     <div>
-      <md-button class="md-icon-button">
+      <md-button class="md-icon-button" @click="showDialog = true">
         <img src="../../assets/icons/collaborator.svg" alt="" srcset="">
       </md-button>
+    </div>
+    <div>
+      <md-dialog class="collabContainer" :md-active.sync="showDialog">
+        <md-dialog-title class="collaboratorDailogTitle">Collaborators
+          <hr>
+          <div>
+            <div>
+              <md-avatar>
+                <img src="../../assets/images/profilepic.jpeg">
+              </md-avatar>
+              <div class="collabName">{{firstName}}{{lastName}}</div>
+            </div>
+            <div class="collaboratorEmail">{{email}}</div>
+          </div>
+        </md-dialog-title>
+      </md-dialog>
     </div>
     <div>
       <md-menu md-direction="top-start">
