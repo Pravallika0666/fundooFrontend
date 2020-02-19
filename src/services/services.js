@@ -30,9 +30,6 @@ export default {
   updateColor(url, data) {
     return axios.put(url, data).then(res => res.data)
   },
-  addReminder(url, data) {
-    return axios.post(url, data).then(res => res.data)
-  },
   labelCreate(url, data) {
     return axios.post(url, data).then(res => res.data)
   },
@@ -41,6 +38,12 @@ export default {
   },
   getLabels(url, data) {
     return axios.get(url, data).then(res => res.data)
+  },
+  addReminder(url, data) {
+    return axios.post(url, data).then(res => res.data)
+  },
+  deleteReminder(url,data){
+    return axios.put(url,data).then(res=>res.data)
   }
 }
 
