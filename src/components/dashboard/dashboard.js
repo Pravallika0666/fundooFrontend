@@ -78,7 +78,6 @@ export default {
       this.showDialog = true
     },
     labelSave() {
-      // console.log("labels", label);
       var object = {
         nameLabel: this.inline
       }
