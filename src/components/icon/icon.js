@@ -134,7 +134,6 @@ export default {
       this.flag = !this.flag;
     },
     reminderLaterToday(cardObject) {
-      console.log("reminderrrrrrrrrrrrrrrr");
       let reminder = new Date(
         this.dateObject.getFullYear(),
         this.dateObject.getMonth(),
