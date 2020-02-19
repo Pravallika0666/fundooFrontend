@@ -100,3 +100,17 @@
 .searchIcon{
     height:"18px"
 }
+.collaboratorDailogTitle{
+    font-family: $roboto-slab;
+    font-style: bold;
+}
+.collabContainer{
+    width: 600px;
+    height: 257;
+}
+.collaboratorEmail{
+    font-family: $roboto-slab;
+}
+.collabDialog{
+    @include dispflex(flex); 
+}
