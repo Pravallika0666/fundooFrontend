@@ -15,7 +15,10 @@ export default {
       dateObject: new Date(),
       inline: "",
       string: [],
+      image: String,
+      showDialog: false,
       reminder: null,
+      email: "",
       labelArray: [],
       Arraycolor: [
         [
@@ -45,6 +48,10 @@ export default {
 
   },
   mounted() {
+    this.email = localStorage.getItem('email')
+    this.firstName = localStorage.getItem('firstname')
+    this.lastName = localStorage.getItem('lastname')
+    
     if (this.$router.currentRoute.fullPath === "/dashboard/archive") {
       this.route = true
     } else {
@@ -133,6 +140,7 @@ export default {
     saveLabel() {
       this.flag = !this.flag;
     },
+
     reminderLaterToday(cardObject) {
       let reminder = new Date(
         this.dateObject.getFullYear(),
@@ -144,7 +152,7 @@ export default {
         0
       )
       var object = {
-        userId: cardObject._id,
+        noteId: cardObject._id,
         Reminder: reminder
       }
       console.log("reminderrr", reminder);
@@ -162,7 +170,6 @@ export default {
       console.log("labelsResponse", res);
       this.object.push(res.data.nameLabel)
     })
-
   }
 }
 
