@@ -18,10 +18,9 @@ export default {
         services.getAllnote('http://localhost:4000/note/getAllnote')
           .then(res => {
             console.log("addddddddd", res);
-
             this.notes = [];
             for (let index = 0; index < res.data.length; index++) {
-              if (!res.data[index].isArchived && !res.data[index].isDeleted && !res.data[index].Reminder) {
+              if (!res.data[index].isArchived && !res.data[index].isDeleted) {
                 this.notes.push(res.data[index]);
               }
             }
@@ -42,7 +41,7 @@ export default {
       var carddata = res.data
       this.notes = []
       for (let i = 0; i < carddata.length; i++) {
-        if (!carddata[i].isArchived && !carddata[i].isDeleted && !carddata[i].Reminder) {
+        if (!carddata[i].isArchived && !carddata[i].isDeleted) {
           this.notes.push(carddata[i])
         }
       }
