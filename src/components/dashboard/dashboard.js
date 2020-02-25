@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 Vue.use(VueRouter);
-import { EventBus } from "../../main";
+import { EventBus } from "../../eventBus";
 import services from "../../services/services";
 export default {
   name: 'dashboard',
