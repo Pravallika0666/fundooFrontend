@@ -8,17 +8,21 @@ export default {
   },
   data() {
     return {
+      items: [],
       flag: true,
       route: true,
       route1: true,
       date: null,
+      inputbyUser: "",
       dateObject: new Date(),
+      filter: "",
       inline: "",
       string: [],
       image: String,
       showDialog: false,
       reminder: null,
       email: "",
+      search: '',
       labelArray: [],
       Arraycolor: [
         [
@@ -45,13 +49,17 @@ export default {
     }
   },
   computed: {
-
+    filteredItems: function () {
+      this.items.filter((item) => {
+        return item.email.match(this.inputbyUser);
+      })
+    }
   },
   mounted() {
     this.email = localStorage.getItem('email')
     this.firstName = localStorage.getItem('firstname')
     this.lastName = localStorage.getItem('lastname')
-    
+
     if (this.$router.currentRoute.fullPath === "/dashboard/archive") {
       this.route = true
     } else {
@@ -64,11 +72,16 @@ export default {
       this.route1 = false
     }
     services.getLabels('http://localhost:4000/note/getLabels').then(res => {
-      console.log("");
       this.labelArray = res.data;
+    })
+    services.getUsers('http://localhost:4000/getUsers').then(res => {
+      this.items = res.data
+      // console.log("responsedata",res);
+
     })
   },
   methods: {
+   
     archive(cardObject) {
       var object = {
         noteId: cardObject._id,
@@ -170,7 +183,7 @@ export default {
       console.log("labelsResponse", res);
       this.object.push(res.data.nameLabel)
     })
-  }
+  },
 }
 
 
