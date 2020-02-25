@@ -1,6 +1,6 @@
 import icon from "../icon";
 import services, { messageService } from "../../services/services";
-import { EventBus } from "../../main";
+import { EventBus } from "../../eventBus";
 export default {
   name: 'display-note',
   components: { icon },
