@@ -58,14 +58,23 @@
       <md-dialog class="collabContainer" :md-active.sync="showDialog">
         <md-dialog-title class="collaboratorDailogTitle">Collaborators
           <hr>
-          <div>
+          <div class="collabDialog">
+            <md-button class="md-fab md-mini">
+              <img src="../../assets/images/profilepic.jpeg">
+            </md-button>
             <div>
-              <md-avatar>
-                <img src="../../assets/images/profilepic.jpeg">
-              </md-avatar>
-              <div class="collabName">{{firstName}}{{lastName}}</div>
+              <div class="collabName">{{firstName}} {{lastName}}<span class="collabOwner">(Owner)</span></div>
+              <div id="collaboratorEmail" class="md-subhead">{{email}}</div>
             </div>
-            <div class="collaboratorEmail">{{email}}</div>
+          </div>
+          <div class="addCollab">
+            <md-button class="md-icon-button" id="collab">
+              <img src="../../assets/icons/collaborator.svg">
+            </md-button>
+            <input class="collaboratorAdd" placeholder="Person or email to share with" v-model="inputbyUser" />
+            <div v-for="item in items">
+              <div>{{item.email}}</div>
+            </div>
           </div>
         </md-dialog-title>
       </md-dialog>
