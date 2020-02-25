@@ -10,8 +10,7 @@
     }
     .deletepointer{
         cursor: pointer !important;
-    }
-   
+    } 
 }
 .displaycolor {
     margin-top: 2px;
@@ -108,9 +107,38 @@
     width: 600px;
     height: 257;
 }
-.collaboratorEmail{
+#collaboratorEmail{
     font-family: $roboto-slab;
+    font-size: 13px;
+    
 }
 .collabDialog{
     @include dispflex(flex); 
+}
+.md-button{
+    cursor: default;
+}
+.collabName{
+    font-size: 16px;
+}
+.collabOwner{
+    font-style: italic
+}
+.collab{
+    border: solid transparent;   
+    color: #202124;
+}
+.collaboratorAdd{
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    overflow: hidden;
+}
+.addCollab{
+    @include dispflex(flex); 
+    align-items: baseline;
+}
+.emails{
+    display: flex
 }
