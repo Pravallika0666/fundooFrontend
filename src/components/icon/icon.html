@@ -4,6 +4,7 @@
       <md-menu md-size="medium" md-align-trigger>
         <md-button class="md-icon-button" md-menu-trigger>
           <img src="../../assets/icons/remindMe.svg" alt="" srcset="">
+          <md-tooltip md-direction="bottom">Remind-me</md-tooltip>
         </md-button>
         <div class="remindCard">
           <md-menu-content class="remindMenuContent">
@@ -46,18 +47,54 @@
             </md-menu-item>
           </md-menu-content>
         </div>
-
       </md-menu>
     </div>
     <div>
       <md-button class="md-icon-button" @click="showDialog = true">
         <img src="../../assets/icons/collaborator.svg" alt="" srcset="">
+        <md-tooltip md-direction="bottom">Collaborator</md-tooltip>
       </md-button>
     </div>
-    <div>
-      <md-dialog class="collabContainer" :md-active.sync="showDialog">
+
+    <!-- <md-dialog class="collabContainer" :md-active.sync="showDialog">
         <md-dialog-title class="collaboratorDailogTitle">Collaborators
           <hr>
+          <div>
+            <div class="collabDialog">
+              <md-button class="md-fab md-mini">
+                <img src="../../assets/images/profilepic.jpeg">
+              </md-button>
+              <div>
+                <div class="collabName">{{firstName}} {{lastName}}<span class="collabOwner">(Owner)</span></div>
+                <div id="collaboratorEmail" class="md-subhead">{{email}}</div>
+              </div>
+            </div>
+            <div class="addCollab">
+              <md-button class="md-icon-button" id="collab">
+                <img src="../../assets/icons/collaborator.svg">
+              </md-button>
+              <div>
+                <input v-model="inputbyUser" class="collaboratorAdd" placeholder="Person or email to share with" />
+                <div v-for="item in filterBy(items, inputbyUser)" :key="item.id" :value="item.email">
+                  <div class="emailShow">
+                    <div @click="addCollaborator(item.email)">{{item.email}} </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </md-dialog-title>
+        <div class="collaboratorsave">
+          <md-button class="collabButtons" @click="showDialog=false">Cancel</md-button>
+          <md-button class="collabButtons">Save</md-button>
+        </div>
+      </md-dialog> -->
+    <md-dialog :md-active.sync="showDialog">
+        <md-dialog-title>
+          <label>Collaborators</label>
+          <hr>
+        </md-dialog-title>
+        <div class="containerCollab">
           <div class="collabDialog">
             <md-button class="md-fab md-mini">
               <img src="../../assets/images/profilepic.jpeg">
@@ -67,22 +104,27 @@
               <div id="collaboratorEmail" class="md-subhead">{{email}}</div>
             </div>
           </div>
-          <div class="addCollab">
-            <md-button class="md-icon-button" id="collab">
-              <img src="../../assets/icons/collaborator.svg">
-            </md-button>
-            <input class="collaboratorAdd" placeholder="Person or email to share with" v-model="inputbyUser" />
-            <div v-for="item in items">
-              <div>{{item.email}}</div>
+          <div class="collaabbb">
+            <div class="addCollab">
+              <md-button class="md-icon-button" id="collab">
+                <img src="../../assets/icons/collaborator.svg">
+              </md-button>
+            </div>
+            <div>
+              <input class="inputField" v-model="inputUser" placeholder="Person or email to share with" />
             </div>
           </div>
-        </md-dialog-title>
+        </div>
+        <div class="collaboratorsave">
+          <md-button class="collabButtons" @click="showDialog=false">Cancel</md-button>
+          <md-button class="collabButtons" @click="addCollaborator(cardObject)">Save</md-button>
+        </div>
       </md-dialog>
-    </div>
     <div>
       <md-menu md-direction="top-start">
         <md-button md-menu-trigger class="md-icon-button">
           <img src="../../assets/icons/color.svg" alt="" srcset="">
+          <md-tooltip md-direction="bottom">Change color</md-tooltip>
         </md-button>
         <md-menu-content>
           <div class="displaycolor" v-for=" colors in Arraycolor">
@@ -98,23 +140,26 @@
     <div>
       <md-button class="md-icon-button">
         <img src="../../assets/icons/addImage.svg" alt="" srcset="">
+        <md-tooltip md-direction="bottom">Add image</md-tooltip>
       </md-button>
     </div>
     <div>
       <md-button class="md-icon-button" v-if="!route" @click="archive(cardObject)">
         <img src="../../assets/icons/archive.svg" alt="" srcset="">
+        <md-tooltip md-direction="bottom">Archive</md-tooltip>
       </md-button>
     </div>
     <div>
       <md-button class="md-icon-button" v-if="route" @click="unarchive(cardObject)">
         <img src="../../assets/icons/unarchive.svg" alt="" srcset="">
+        <md-tooltip md-direction="bottom">Unarchive</md-tooltip>
       </md-button>
     </div>
-
     <div>
       <md-menu md-direction="bottom-start">
         <md-button class="md-icon-button" md-menu-trigger>
           <img src="../../assets/icons/more.svg" alt="" srcset="">
+          <md-tooltip md-direction="bottom">More</md-tooltip>
           <md-menu-content class="menuContent">
             <md-menu-item class="deletepointer" @click="trash(cardObject)">Delete note</md-menu-item>
             <md-menu-item>
