@@ -5,6 +5,7 @@
         <div class="toolbar">
           <md-button class="md-icon-button" @click="showNavigation" id="button">
             <md-icon>menu</md-icon>
+            <md-tooltip md-direction="bottom">Main menu</md-tooltip>
           </md-button>
           <div>
             <img class='keepimg' alt-aria-hidden="true" src="../../assets/images/keep_48dp (1).png">
@@ -21,26 +22,32 @@
             </md-autocomplete>
           </div>
         </div>
-
+        <!-- <div class="searchNone">
+          <img src="../../assets/icons/searchInLabels.svg">
+        </div> -->
         <div class="toolbaricons">
           <div class="threeicons">
             <md-button class="md-icon-button">
-              <img src="../../assets/icons/refresh.svg" alt="" srcset="">
+              <img class="refresh" src="../../assets/icons/refresh.svg" alt="" srcset="">
+              <md-tooltip md-direction="bottom">Refresh</md-tooltip>
             </md-button>
             <div @click="viewList()">
               <div v-if="grid">
                 <md-button class="md-icon-button">
                   <img src="../../assets/icons/listView.svg" alt="" srcset="">
+                  <md-tooltip md-direction="bottom">List view</md-tooltip>
                 </md-button>
               </div>
               <div v-if="!grid">
                 <md-button class="md-icon-button">
                   <img src="../../assets/icons/gridView.svg" alt="" srcset="">
+                  <md-tooltip md-direction="bottom">Grid view</md-tooltip>
                 </md-button>
               </div>
             </div>
             <md-button class="md-icon-button">
               <img src="../../assets/icons/settings.svg" alt="" srcset="">
+              <md-tooltip md-direction="bottom">Settings</md-tooltip>
             </md-button>
           </div>
           <div class="profilePicCard">
