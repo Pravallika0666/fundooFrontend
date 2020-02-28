@@ -11,17 +11,18 @@ export default {
       items: [],
       flag: true,
       route: true,
+      emailCollaborator: false,
       route1: true,
       date: null,
-      inputbyUser: "",
       dateObject: new Date(),
-      filter: "",
       inline: "",
+      inputUser: "",
       string: [],
+      label:[],
       image: String,
       showDialog: false,
       reminder: null,
-      email: "",
+      email: String,
       search: '',
       labelArray: [],
       Arraycolor: [
@@ -49,11 +50,7 @@ export default {
     }
   },
   computed: {
-    filteredItems: function () {
-      this.items.filter((item) => {
-        return item.email.match(this.inputbyUser);
-      })
-    }
+
   },
   mounted() {
     this.email = localStorage.getItem('email')
@@ -76,12 +73,9 @@ export default {
     })
     services.getUsers('http://localhost:4000/getUsers').then(res => {
       this.items = res.data
-      // console.log("responsedata",res);
-
     })
   },
   methods: {
-   
     archive(cardObject) {
       var object = {
         noteId: cardObject._id,
@@ -172,18 +166,31 @@ export default {
       services.addReminder('http://localhost:4000/note/addReminder', object).then((res) => {
         console.log("reminder set", res);
       })
-    }
-  },
-  createLabel: function () {
-    console.log("jjjjjjjjjjjjjjjjjjjjjjjjjjj");
-    var object = {
-      nameLabel: this.inline
-    };
-    services.labelCreate('http://localhost:4000/note/labelCreate', object).then((res) => {
-      console.log("labelsResponse", res);
-      this.object.push(res.data.nameLabel)
-    })
-  },
+    },
+    createLabel: function () {
+      console.log("jjjjjjjjjjjjjjjjjjjjjjjjjjj");
+      var object = {
+        nameLabel: this.inline
+      };
+      services.labelCreate('http://localhost:4000/note/labelCreate', object).then((res) => {
+        console.log("labelsResponse", res);
+        this.labels.push(res.data.nameLabel)
+      })
+    },
+    addCollaborator(cardObject) {
+      this.showDialog = false;
+      var object = {
+        collaboratorEmail: this.inputUser,
+        userId: cardObject.userId,
+        noteId:cardObject._id
+      };
+      services.addCollaborator('http://localhost:4000/note/addCollaborator', object).then((res) => {
+        console.log("addCollaborator", res);
+      })
+    },
+  }
+
+
 }
 
 
