@@ -1,14 +1,16 @@
 import icon from "../icon";
 import services, { messageService } from "../../services/services";
 import { EventBus } from "../../eventBus";
+import draggable from "vuedraggable";
 export default {
   name: 'display-note',
-  components: { icon },
+  components: { icon, draggable },
   props: {
     cards: Array
   },
   data() {
     return {
+      event: '',
       showDialog: false,
       dialogData: Object,
       updatetitle: "",
@@ -19,7 +21,6 @@ export default {
     }
   },
   computed: {
-
   },
   created() {
     EventBus.$on('i-got-clicked', grid => {
@@ -78,7 +79,8 @@ export default {
         this.$emit("Reminder", card)
         messageService.sendMessage("message!!")
       })
-    }
+    },
+
   }
 }
 
