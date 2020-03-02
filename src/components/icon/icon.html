@@ -55,71 +55,38 @@
         <md-tooltip md-direction="bottom">Collaborator</md-tooltip>
       </md-button>
     </div>
-
-    <!-- <md-dialog class="collabContainer" :md-active.sync="showDialog">
-        <md-dialog-title class="collaboratorDailogTitle">Collaborators
-          <hr>
-          <div>
-            <div class="collabDialog">
-              <md-button class="md-fab md-mini">
-                <img src="../../assets/images/profilepic.jpeg">
-              </md-button>
-              <div>
-                <div class="collabName">{{firstName}} {{lastName}}<span class="collabOwner">(Owner)</span></div>
-                <div id="collaboratorEmail" class="md-subhead">{{email}}</div>
-              </div>
-            </div>
-            <div class="addCollab">
-              <md-button class="md-icon-button" id="collab">
-                <img src="../../assets/icons/collaborator.svg">
-              </md-button>
-              <div>
-                <input v-model="inputbyUser" class="collaboratorAdd" placeholder="Person or email to share with" />
-                <div v-for="item in filterBy(items, inputbyUser)" :key="item.id" :value="item.email">
-                  <div class="emailShow">
-                    <div @click="addCollaborator(item.email)">{{item.email}} </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </md-dialog-title>
-        <div class="collaboratorsave">
-          <md-button class="collabButtons" @click="showDialog=false">Cancel</md-button>
-          <md-button class="collabButtons">Save</md-button>
-        </div>
-      </md-dialog> -->
     <md-dialog :md-active.sync="showDialog">
-        <md-dialog-title>
-          <label>Collaborators</label>
-          <hr>
-        </md-dialog-title>
-        <div class="containerCollab">
-          <div class="collabDialog">
-            <md-button class="md-fab md-mini">
-              <img src="../../assets/images/profilepic.jpeg">
+      <md-dialog-title>
+        <label>Collaborators</label>
+        <hr>
+      </md-dialog-title>
+      <div class="containerCollab">
+        <div class="collabDialog">
+          <md-button class="md-fab md-mini">
+            <img src="../../assets/images/profilepic.jpeg">
+          </md-button>
+          <div>
+            <div class="collabName">{{firstName}} {{lastName}}<span class="collabOwner">(Owner)</span></div>
+            <div id="collaboratorEmail" class="md-subhead">{{email}}</div>
+          </div>
+        </div>
+        <div>{{collaboratorEmail}}</div>
+        <div class="collaabbb">
+          <div class="addCollab">
+            <md-button class="md-icon-button" id="collab">
+              <img src="../../assets/icons/collaborator.svg">
             </md-button>
-            <div>
-              <div class="collabName">{{firstName}} {{lastName}}<span class="collabOwner">(Owner)</span></div>
-              <div id="collaboratorEmail" class="md-subhead">{{email}}</div>
-            </div>
           </div>
-          <div class="collaabbb">
-            <div class="addCollab">
-              <md-button class="md-icon-button" id="collab">
-                <img src="../../assets/icons/collaborator.svg">
-              </md-button>
-            </div>
-            <div>
-              <input class="inputField" v-model="inputUser" placeholder="Person or email to share with" />
-            </div>
+          <div>
+            <input class="inputField" v-model="inputUser" placeholder="Person or email to share with" />
           </div>
         </div>
-        <div class="collaboratorsave">
-          <md-button class="collabButtons" @click="showDialog=false">Cancel</md-button>
-          <md-button class="collabButtons" @click="addCollaborator(cardObject)">Save</md-button>
-        </div>
-      </md-dialog>
+      </div>
+      <div class="collaboratorsave">
+        <md-button class="collabButtons" @click="showDialog=false">Cancel</md-button>
+        <md-button class="collabButtons" @click="addCollaborator(cardObject)">Save</md-button>
+      </div>
+    </md-dialog>
     <div>
       <md-menu md-direction="top-start">
         <md-button md-menu-trigger class="md-icon-button">
