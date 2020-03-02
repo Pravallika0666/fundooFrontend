@@ -12,8 +12,8 @@ export default {
   getAll(url, data) {
     return axios.post(url, data).then(res => res.data);
   },
-  getUsers(url,data){
-    return axios.get(url,data).then(res=>res.data)
+  getUsers(url, data) {
+    return axios.get(url, data).then(res => res.data)
   },
   getAllnote(url) {
     return axios.get(url).then(res => res.data)
@@ -45,8 +45,11 @@ export default {
   addReminder(url, data) {
     return axios.post(url, data).then(res => res.data)
   },
-  deleteReminder(url,data){
-    return axios.put(url,data).then(res=>res.data)
+  deleteReminder(url, data) {
+    return axios.put(url, data).then(res => res.data)
+  },
+  addCollaborator(url, data) {
+    return axios.post(url, data).then(res => res.data)
   }
 }
 
