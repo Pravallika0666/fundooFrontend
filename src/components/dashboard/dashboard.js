@@ -10,6 +10,7 @@ export default {
   },
   data() {
     return {
+      // query: "",
       file: "",
       search: [],
       flag: true,
@@ -94,7 +95,14 @@ export default {
         this.image = res.data
         localStorage.setItem("image", res.data)
       })
-    }
+    },
+    // search() {
+    //   console.log(this.query);
+    //   services.search('http://localhost:4000/note/search').then(res=>{
+    //     console.log("search",res);
+    //     return this.query;
+    //   })
+    // }
   }
 }
 
