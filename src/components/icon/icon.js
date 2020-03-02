@@ -10,6 +10,7 @@ export default {
     return {
       items: [],
       flag: true,
+      collaboratorEmail: "",
       route: true,
       emailCollaborator: false,
       route1: true,
@@ -18,7 +19,7 @@ export default {
       inline: "",
       inputUser: "",
       string: [],
-      label:[],
+      label: [],
       image: String,
       showDialog: false,
       reminder: null,
@@ -182,15 +183,15 @@ export default {
       var object = {
         collaboratorEmail: this.inputUser,
         userId: cardObject.userId,
-        noteId:cardObject._id
+        noteId: cardObject._id
       };
       services.addCollaborator('http://localhost:4000/note/addCollaborator', object).then((res) => {
-        console.log("addCollaborator", res);
+        console.log("addCollaborator", res.data.collaboratorEmail);
+        this.collaboratorEmail = res.data.collaboratorEmail
+        console.log("collaaaaaabbb", this.collaboratorEmail);
       })
-    },
+    }
   }
-
-
 }
 
 
