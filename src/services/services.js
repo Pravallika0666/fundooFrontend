@@ -50,6 +50,9 @@ export default {
   },
   addCollaborator(url, data) {
     return axios.post(url, data).then(res => res.data)
+  },
+  search(url,data){
+    return axios.post(url,data).then(res=>res.data)
   }
 }
 
