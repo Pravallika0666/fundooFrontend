@@ -22,7 +22,9 @@ export default {
       pinned: false,
       archive: false,
       bgcolor: "#FFFF",
-      delete: false
+      delete: false,
+      // collaboratorEmail:Array
+
     }
   },
   computed: {
@@ -44,7 +46,8 @@ export default {
         isPinned: this.pinned,
         isArchived: this.archive,
         color: this.bgcolor,
-        isDeleted: this.delete
+        isDeleted: this.delete,
+        // collaboratorEmail: this.collaboratorEmail
       }
       console.log(note, "notesss");
 
