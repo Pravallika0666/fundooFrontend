@@ -13,13 +13,13 @@
           <div class="keep">
             <span class="title">Keep</span>
           </div>
-          <div class="search">
-            <md-button class="md-icon-button">
-              <img class="searchBarIcon" src="../../assets/icons/searchInLabels.svg">
-            </md-button>
-            <md-autocomplete v-model="search" :md-options="notes" md-layout="box">
-              <label class="searchTitle">Search</label>
-            </md-autocomplete>
+          <div class="searchBar">
+            <img class="searchBarIcon" src="../../assets/icons/searchInLabels.svg">
+            <input placeholder="Search" v-model="query" @keyup="search" class="search" />
+            <div v-for="search in filterBlogs">
+            </div>
+            <h2>{{search.title}}</h2>
+            <h2>{{search.description}}</h2>
           </div>
         </div>
         <div class="toolbaricons">
