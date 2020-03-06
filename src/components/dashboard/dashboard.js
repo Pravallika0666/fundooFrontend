@@ -2,17 +2,20 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 Vue.use(VueRouter);
 import { EventBus } from "../../eventBus";
+import { SearchBus } from "../../eventBus";
 import services from "../../services/services";
+import { filterBylabel } from "../icon/filter";
 export default {
   name: 'dashboard',
   components: {},
-  props: {
-  },
   data() {
     return {
-      // query: "",
+      query: "",
+      searchs: [],
+      // search: String,
       file: "",
-      search: [],
+      items: [],
+      key: [],
       flag: true,
       showSidepanel: false,
       item: String,
@@ -27,11 +30,17 @@ export default {
       image: String,
       labelArray: [],
       nameLabel: "",
-      notes: []
+      searchnote: true,
+      notes: [],
+      card: []
     }
   },
   computed: {
-
+    filterBlogs: function () {
+      return this.searchs.filter(search => {
+        return search.title.toUpperCase().includes(this.query.toUpperCase()) || search.description.toUpperCase().includes(this.query.toUpperCase())
+      })
+    }
   },
   mounted() {
     this.firstName = localStorage.getItem('firstname')
@@ -39,17 +48,14 @@ export default {
     this.email = localStorage.getItem('email')
     this.url = "Notes";
     services.getLabels('http://localhost:4000/note/getLabels').then(res => {
-      console.log("");
-
       this.labelArray = res.data;
     });
     this.image = localStorage.getItem('image')
-
   },
   methods: {
+    filterBylabel,
     showNavigation() {
       this.flag = !this.flag
-
     },
     archive() {
       if (this.$router.currentRoute.fullPath === "/dashboard/archive") {
@@ -96,13 +102,18 @@ export default {
         localStorage.setItem("image", res.data)
       })
     },
-    // search() {
-    //   console.log(this.query);
-    //   services.search('http://localhost:4000/note/search').then(res=>{
-    //     console.log("search",res);
-    //     return this.query;
-    //   })
-    // }
+    search() {
+      console.log("serachhhhhhhhh");
+      var object = {
+        key: this.query
+      }
+      services.search('http://localhost:4000/note/search', object).then(res => {
+        console.log("search", res)
+      })
+      console.log("this query", this.query);
+      SearchBus.$emit("clicked", this.query)
+      return this.query
+    }
   }
 }
 
