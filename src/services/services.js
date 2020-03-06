@@ -53,6 +53,12 @@ export default {
   },
   search(url,data){
     return axios.post(url,data).then(res=>res.data)
+  },
+  getCollaborator(url,data){
+    return axios.get(url,data).then(res=>res.data)
+  },
+  deleteLabels(url,data){
+    return axios.put(url,data).then(res=>res.data)
   }
 }
 
