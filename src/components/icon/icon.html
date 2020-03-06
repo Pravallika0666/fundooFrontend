@@ -78,7 +78,12 @@
             </md-button>
           </div>
           <div>
-            <input class="inputField" v-model="inputUser" placeholder="Person or email to share with" />
+            <div>
+              <input class="inputField" v-model="inputUser" placeholder="Person or email to share with" />
+            </div>
+            <div v-for="item in filterBy(items,inputUser)">
+              <div class="collabEmail" v-if="!emailCollaborator" @click="saveCollaborator(item.email)">{{item.email}}</div>
+            </div>
           </div>
         </div>
       </div>
