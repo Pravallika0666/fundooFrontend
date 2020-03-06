@@ -2,28 +2,40 @@
   <div class="display-note">
     <div class="displaycard">
       <draggable class="dragAlign">
-        <md-card md-with-hover v-for="card in cards" class="cardContainer" v-bind:style="{ 'background-color': card.color }">
-            <div class="subnote">
-              <div class="displaytitle" @click="save(card)">
-                {{card.title}}
-              </div>
-              <div>
-                <md-button class="md-icon-button">
-                  <img src="../../assets/icons/pin.svg" alt="" srcset="">
-                </md-button>
-              </div>
+        <md-card md-with-hover v-for="card in filterList" class="cardContainer"
+          v-bind:style="{ 'background-color': card.color }">
+          <div class="subnote">
+            <div class="displaytitle" @click="save(card)">
+              {{card.title}}
             </div>
-            <div class="displaytitle">
-              {{card.description}}
+            <div>
+              <md-button class="md-icon-button">
+                <img src="../../assets/icons/pin.svg" alt="" srcset="">
+              </md-button>
             </div>
-            <div class="reminderChip">
-              <div>
-                <md-chip v-if="card.Reminder!= '' " @md-delete="chipDelete(card)" md-deletable>
-                  {{ card.Reminder | moment("ddd,DD,HH,A") }}</md-chip>
-              </div>
+          </div>
+          <div class="displaytitle">
+            {{card.description}}
+          </div>
+          <div class="lineChips">
+          <div class="reminderChip">
+            <div>
+              <md-chip v-if="card.Reminder!= '' " @md-delete="chipDelete(card)" md-deletable>
+                {{ card.Reminder | moment("ddd,DD,HH,A") }}</md-chip>
             </div>
-            <icon :cardObject="card" @archivecard="archive" @Reminder="chipDelete" @updateNote="updateNote"
-              @trash="trash" @unTrash="unTrash" @unarchive="unarchive"></icon>
+          </div>
+          <div>
+            <md-chip v-for="label in labelsArray" @md-delete="labelChipDelete(card)" md-deletable>{{label.nameLabel}}</md-chip>
+          </div>
+          <div >
+            <div @click="collaborator(card)"  >
+              <!-- <div>{{card.collaboratorEmail}}</div> -->
+              <!-- <md-avatar class="md-fab md-mini" v-bind:style="{ 'background-image':'url(' +image+ ')','background-size':'cover'}" ></md-avatar> -->
+            </div>
+          </div>
+        </div>
+          <icon :cardObject="card" @archivecard="archive" @Reminder="chipDelete"
+            @updateNote="updateNote" @trash="trash" @unTrash="unTrash" @unarchive="unarchive"></icon>
         </md-card>
       </draggable>
     </div>
