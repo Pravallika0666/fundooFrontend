@@ -1,5 +1,7 @@
 import services from "../../services/services";
 import datetime from 'vuejs-datetimepicker';
+import { filterBy } from "../icon/filter";
+import {EventBus} from "../../eventBus";
 export default {
   name: 'icon',
   components: { datetime },
@@ -19,6 +21,7 @@ export default {
       inline: "",
       inputUser: "",
       string: [],
+      collaborator:Object,
       label: [],
       image: String,
       showDialog: false,
@@ -77,6 +80,7 @@ export default {
     })
   },
   methods: {
+    filterBy,
     archive(cardObject) {
       var object = {
         noteId: cardObject._id,
@@ -188,8 +192,13 @@ export default {
       services.addCollaborator('http://localhost:4000/note/addCollaborator', object).then((res) => {
         console.log("addCollaborator", res.data.collaboratorEmail);
         this.collaboratorEmail = res.data.collaboratorEmail
-        console.log("collaaaaaabbb", this.collaboratorEmail);
+        console.log("collaaaaaabbb", this.collaboratorEmail)   
+        EventBus.$emit('clicked',this.collaboratorEmail) 
+        // this.$emit("")
       })
+    },
+    saveCollaborator(email) {
+      this.inputUser = email
     }
   }
 }
