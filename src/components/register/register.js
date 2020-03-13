@@ -82,7 +82,7 @@ export default {
       }
       services.getAll('http://localhost:4000/register', obj).then(res => {
         console.log("res", res);
-        router.push('/')
+        router.push('/login')
       })
       // Instead of this timeout, here you can call your API
       window.setTimeout(() => {
@@ -99,7 +99,7 @@ export default {
       }
     },
     login() {
-      router.push('/')
+      router.push('/login')
     }
   }
 }
